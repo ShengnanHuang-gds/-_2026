@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import List
+from typing import List, Optional
 
 from config.policy import (
     compute_daily_demand_mean,
@@ -68,14 +68,30 @@ class ForwardWarehouse:
             self.today_lost_sales[product_index] = lost_sales
             self.inventory[product_index] = current_inventory - sales
 
-    def check_replenishment_request(self) -> List[int]:
-        """section7 如果低于s补到S else 不变 step4 in section 4"""
+    def check_replenishment_request(
+        self,
+        reorder_points: Optional[List[int]] = None,
+        order_up_to_levels: Optional[List[int]] = None,
+    ) -> List[int]:
+        """section7 如果低于s补到S else 不变 step4 in section 4.
+
+        Optional temporary (s,S) override for MDP buffer action ell_t.
+        """
+        active_reorder_points = (
+            reorder_points if reorder_points is not None else self.reorder_points
+        )
+        active_order_up_to_levels = (
+            order_up_to_levels
+            if order_up_to_levels is not None
+            else self.order_up_to_levels
+        )
+
         self.today_replenishment_requests = [0, 0, 0, 0, 0]
 
         for product_index in range(5):
             current_inventory = self.inventory[product_index]
-            reorder_point = self.reorder_points[product_index]
-            order_up_to_level = self.order_up_to_levels[product_index]
+            reorder_point = active_reorder_points[product_index]
+            order_up_to_level = active_order_up_to_levels[product_index]
 
             if current_inventory <= reorder_point:
                 self.today_replenishment_requests[product_index] = (

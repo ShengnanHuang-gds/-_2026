@@ -90,8 +90,85 @@ def test_daily_profit_and_fill_rate_on_one_evaluation_day():
 
     assert result["evaluation_days"] == 1
     assert result["total_profit"] == pytest.approx(expected_profit)
+    assert result["total_expedite_cost"] == pytest.approx(0.0)
     assert result["fill_rate"] == pytest.approx(8 / 10)
     assert result["lost_sales_rate"] == pytest.approx(2 / 10)
+
+
+def test_expedite_cost_is_subtracted_from_profit():
+    config = SimulationConfig(num_forward_warehouses=1)
+    products = get_default_products()
+    tracker = PerformanceTracker(config, products)
+    forward_warehouse = make_forward_warehouse()
+
+    forward_warehouse.today_demand = [10, 0, 0, 0, 0]
+    forward_warehouse.today_sales = [10, 0, 0, 0, 0]
+    forward_warehouse.today_lost_sales = [0, 0, 0, 0, 0]
+
+    snapshot = make_evaluation_snapshot(
+        forward_inventory_begin=[20, 0, 0, 0, 0],
+        forward_inventory_end=[10, 0, 0, 0, 0],
+        central_inventory_begin=[100, 0, 0, 0, 0],
+        central_inventory_end=[90, 0, 0, 0, 0],
+    )
+    snapshot["expedite_cost"] = 25.0
+
+    tracker.log_daily_snapshot(snapshot, [forward_warehouse])
+    result = tracker.summarize()
+
+    product = products[0]
+    expected_revenue = product.selling_price * 10
+    average_forward_inventory = (20 + 10) / 2
+    average_central_inventory = (100 + 90) / 2
+    expected_holding_cost = (
+        product.central_holding_cost * average_central_inventory
+        + product.forward_holding_cost * average_forward_inventory
+    )
+    expected_profit = expected_revenue - expected_holding_cost - 25.0
+
+    assert result["total_expedite_cost"] == pytest.approx(25.0)
+    assert result["total_profit"] == pytest.approx(expected_profit)
+
+
+def test_central_zero_inventory_and_forward_stockout_counts():
+    config = SimulationConfig(num_forward_warehouses=2)
+    products = get_default_products()
+    tracker = PerformanceTracker(config, products)
+
+    forward_warehouses = [
+        make_forward_warehouse(),
+        ForwardWarehouse(
+            forward_warehouse_id=2,
+            demand_intensity_multiplier=0.75,
+            products=products,
+            forward_warehouse_capacity=config.forward_warehouse_capacity,
+        ),
+    ]
+    forward_warehouses[0].forward_warehouse_id = 1
+    forward_warehouses[1].forward_warehouse_id = 2
+
+    forward_warehouses[0].today_demand = [5, 0, 0, 0, 0]
+    forward_warehouses[0].today_sales = [3, 0, 0, 0, 0]
+    forward_warehouses[0].today_lost_sales = [2, 0, 0, 0, 0]
+    forward_warehouses[1].today_demand = [4, 0, 0, 0, 0]
+    forward_warehouses[1].today_sales = [4, 0, 0, 0, 0]
+    forward_warehouses[1].today_lost_sales = [0, 0, 0, 0, 0]
+
+    snapshot = make_evaluation_snapshot(
+        forward_inventory_begin=[10, 0, 0, 0, 0],
+        forward_inventory_end=[7, 0, 0, 0, 0],
+        central_inventory_begin=[0, 5, 0, 0, 0],
+        central_inventory_end=[0, 4, 0, 0, 0],
+    )
+    snapshot["forward_inventory_begin"][2] = [8, 0, 0, 0, 0]
+    snapshot["forward_inventory_end"][2] = [4, 0, 0, 0, 0]
+
+    tracker.log_daily_snapshot(snapshot, forward_warehouses)
+    result = tracker.summarize()
+
+    assert result["central_zero_inventory_frequency_by_product"][0] == pytest.approx(1.0)
+    assert result["central_zero_inventory_frequency_by_product"][1] == pytest.approx(0.0)
+    assert result["forward_stockout_frequency_by_product"][0] == pytest.approx(0.5)
 
 
 def test_report_final_metrics_computes_mean_and_ci():

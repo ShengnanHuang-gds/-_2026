@@ -8,6 +8,13 @@ from models.forward_warehouse import ForwardWarehouse
 from models.product import Product
 
 
+PRODUCT_LEVEL_METRICS = [
+    "central_shortage_frequency_by_product",
+    "central_zero_inventory_frequency_by_product",
+    "forward_stockout_frequency_by_product",
+]
+
+
 class PerformanceTracker:
     """step7 Collect daily snapshots and compute KPIs ."""
 
@@ -26,6 +33,7 @@ class PerformanceTracker:
         self.total_sales = 0
         self.total_lost_sales = 0
         self.total_profit = 0.0
+        self.total_expedite_cost = 0.0
 
         self.total_average_forward_inventory = 0.0
         self.total_average_central_inventory = 0.0
@@ -36,6 +44,10 @@ class PerformanceTracker:
 
         # 每个产品 CW shortage 次数
         self.central_shortage_counts = [0] * self.num_products
+        # 每个产品 CW 日末库存为 0 的天数
+        self.central_zero_inventory_counts = [0] * self.num_products
+        # 每个产品 FW 缺货天数（任一 FW 当日 lost_sales > 0 则计 1 次）
+        self.forward_stockout_counts = [0] * self.num_products
 
     def log_daily_snapshot(
         self,
@@ -106,13 +118,17 @@ class PerformanceTracker:
                     product.forward_holding_cost * average_forward_inventory
                 )
 
-        #Daily profit
-        daily_profit = daily_revenue - daily_holding_cost - daily_penalty
+        # Daily profit (PDF reward subtracts expedite / emergency action cost)
+        expedite_cost = float(snapshot.get("expedite_cost", 0.0) or 0.0)
+        daily_profit = (
+            daily_revenue - daily_holding_cost - daily_penalty - expedite_cost
+        )
 
         self.total_demand += daily_demand
         self.total_sales += daily_sales
         self.total_lost_sales += daily_lost_sales
         self.total_profit += daily_profit
+        self.total_expedite_cost += expedite_cost
         self.evaluation_day_count += 1
 
        #Capacity Utilization 13.4
@@ -132,6 +148,17 @@ class PerformanceTracker:
         for product_index, shortage in enumerate(shortage_flags):
             if shortage:
                 self.central_shortage_counts[product_index] += 1
+
+        # --- CW zero-inventory days (end-of-day on-hand) ---
+        for product_index, inventory_level in enumerate(central_inventory_end):
+            if inventory_level == 0:
+                self.central_zero_inventory_counts[product_index] += 1
+
+        # --- FW stockout days (lost sales during demand fulfillment) ---
+        for forward_warehouse in forward_warehouses:
+            for product_index in range(self.num_products):
+                if forward_warehouse.today_lost_sales[product_index] > 0:
+                    self.forward_stockout_counts[product_index] += 1
 
     def summarize(self) -> dict:
         """Return replication-level metrics."""
@@ -158,6 +185,7 @@ class PerformanceTracker:
         return {
             "evaluation_days": evaluation_days,
             "total_profit": self.total_profit,
+            "total_expedite_cost": self.total_expedite_cost,
             "fill_rate": fill_rate,
             "lost_sales_rate": lost_sales_rate,
             "average_forward_inventory": average_forward_inventory,
@@ -184,6 +212,14 @@ class PerformanceTracker:
                 count / evaluation_days
                 for count in self.central_shortage_counts
             ],
+            "central_zero_inventory_frequency_by_product": [
+                count / evaluation_days
+                for count in self.central_zero_inventory_counts
+            ],
+            "forward_stockout_frequency_by_product": [
+                count / (num_forward_warehouses * evaluation_days)
+                for count in self.forward_stockout_counts
+            ],
         }
 
     @staticmethod
@@ -196,7 +232,7 @@ class PerformanceTracker:
         metric_names = [
             key
             for key in replication_results[0].keys()
-            if key != "central_shortage_frequency_by_product"
+            if key not in PRODUCT_LEVEL_METRICS
         ]
 
         summary = {}
@@ -205,20 +241,21 @@ class PerformanceTracker:
             values = [result[metric_name] for result in replication_results]
             summary[metric_name] = _mean_and_ci(values, num_replications)
 
-        # 每个产品 shortage frequency 单独算 CI
-        num_products = len(
-            replication_results[0]["central_shortage_frequency_by_product"]
-        )
-        shortage_summary = []
+        for metric_name in PRODUCT_LEVEL_METRICS:
+            if metric_name not in replication_results[0]:
+                continue
+            num_products = len(replication_results[0][metric_name])
+            product_summary = []
 
-        for product_index in range(num_products):
-            values = [
-                result["central_shortage_frequency_by_product"][product_index]
-                for result in replication_results
-            ]
-            shortage_summary.append(_mean_and_ci(values, num_replications))
+            for product_index in range(num_products):
+                values = [
+                    result[metric_name][product_index]
+                    for result in replication_results
+                ]
+                product_summary.append(_mean_and_ci(values, num_replications))
 
-        summary["central_shortage_frequency_by_product"] = shortage_summary
+            summary[metric_name] = product_summary
+
         return summary
 
 
