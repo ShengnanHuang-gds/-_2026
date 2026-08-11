@@ -1,0 +1,396 @@
+
+===== TRAIN dqn/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=dqn forbid_expedite=True
+[eval  ep 005] greedy_profit=2154003.9 ± 125442.0 (n=3, days=365)
+[train ep 010/50] algo=dqn steps=365 return=199.008 raw_profit=1990076.2 loss=0.15202 eps=0.759 buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2160341.0 ± 130877.7 (n=3, days=365)
+[eval  ep 015] greedy_profit=2148048.7 ± 141025.9 (n=3, days=365)
+[train ep 020/50] algo=dqn steps=365 return=246.763 raw_profit=2467626.2 loss=0.52848 eps=0.518 buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2127564.5 ± 92536.6 (n=3, days=365)
+[eval  ep 025] greedy_profit=2155060.0 ± 150447.9 (n=3, days=365)
+[train ep 030/50] algo=dqn steps=365 return=234.203 raw_profit=2342034.1 loss=0.78505 eps=0.277 buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2156600.2 ± 104334.4 (n=3, days=365)
+[eval  ep 035] greedy_profit=2125231.8 ± 112054.0 (n=3, days=365)
+[train ep 040/50] algo=dqn steps=365 return=202.790 raw_profit=2027898.7 loss=1.29955 eps=0.036 buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2153509.7 ± 107867.6 (n=3, days=365)
+[eval  ep 045] greedy_profit=2148751.5 ± 120474.1 (n=3, days=365)
+[train ep 050/50] algo=dqn steps=365 return=188.367 raw_profit=1883674.3 loss=1.64718 eps=0.010 buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2137220.5 ± 123882.4 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_raw94_dqn_no_ws_best.pt (profit=2160341.0)
+[dqn/no_ws] best_eval=2160340.9500000007 elapsed=20.6s
+
+===== TRAIN dqn/ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=dqn forbid_expedite=True
+[warmstart] collecting 20 rule episodes (forbid_expedite=True) ...
+[warmstart rule ep 001/20] raw_profit=2113685.3 buf=365
+[warmstart rule ep 002/20] raw_profit=1985927.9 buf=730
+[warmstart rule ep 003/20] raw_profit=2198766.7 buf=1095
+[warmstart rule ep 004/20] raw_profit=2269048.3 buf=1460
+[warmstart rule ep 005/20] raw_profit=2125223.2 buf=1825
+[warmstart rule ep 006/20] raw_profit=2246858.4 buf=2190
+[warmstart rule ep 007/20] raw_profit=2000632.2 buf=2555
+[warmstart rule ep 008/20] raw_profit=2249510.2 buf=2920
+[warmstart rule ep 009/20] raw_profit=2088547.6 buf=3285
+[warmstart rule ep 010/20] raw_profit=2124873.6 buf=3650
+[warmstart rule ep 011/20] raw_profit=2203235.4 buf=4015
+[warmstart rule ep 012/20] raw_profit=2316572.0 buf=4380
+[warmstart rule ep 013/20] raw_profit=1941794.2 buf=4745
+[warmstart rule ep 014/20] raw_profit=2242409.7 buf=5110
+[warmstart rule ep 015/20] raw_profit=2233494.9 buf=5475
+[warmstart rule ep 016/20] raw_profit=2131914.2 buf=5840
+[warmstart rule ep 017/20] raw_profit=2222062.9 buf=6205
+[warmstart rule ep 018/20] raw_profit=2443244.2 buf=6570
+[warmstart rule ep 019/20] raw_profit=2254974.9 buf=6935
+[warmstart rule ep 020/20] raw_profit=2079305.2 buf=7300
+[warmstart] behavioral cloning 2000 updates ...
+[warmstart BC 0001/2000] loss=3.3177
+[warmstart BC 0400/2000] loss=0.0009
+[warmstart BC 0800/2000] loss=0.0003
+[warmstart BC 1200/2000] loss=0.0001
+[warmstart BC 1600/2000] loss=0.0001
+[warmstart BC 2000/2000] loss=0.0000
+[warmstart] pre-RL greedy eval profit=2171627.1 ± 126977.3
+[eval  ep 005] greedy_profit=2153580.0 ± 131401.6 (n=3, days=365)
+[train ep 010/50] algo=dqn steps=365 return=202.836 raw_profit=2028356.4 loss=2.96017 eps=0.131 buf=10950 updates=4150
+[eval  ep 010] greedy_profit=2172611.0 ± 113507.5 (n=3, days=365)
+[eval  ep 015] greedy_profit=2158147.5 ± 126324.2 (n=3, days=365)
+[train ep 020/50] algo=dqn steps=365 return=250.307 raw_profit=2503070.0 loss=3.45630 eps=0.061 buf=14600 updates=7800
+[eval  ep 020] greedy_profit=2157051.3 ± 139006.9 (n=3, days=365)
+[eval  ep 025] greedy_profit=2157400.9 ± 118655.3 (n=3, days=365)
+[train ep 030/50] algo=dqn steps=365 return=234.750 raw_profit=2347495.4 loss=3.60065 eps=0.010 buf=18250 updates=11450
+[eval  ep 030] greedy_profit=2165075.1 ± 130262.3 (n=3, days=365)
+[eval  ep 035] greedy_profit=2147494.9 ± 120476.4 (n=3, days=365)
+[train ep 040/50] algo=dqn steps=365 return=206.271 raw_profit=2062707.3 loss=4.08281 eps=0.010 buf=21900 updates=15100
+[eval  ep 040] greedy_profit=2135837.5 ± 125091.0 (n=3, days=365)
+[eval  ep 045] greedy_profit=2129892.5 ± 117154.5 (n=3, days=365)
+[train ep 050/50] algo=dqn steps=365 return=193.890 raw_profit=1938895.6 loss=4.71181 eps=0.010 buf=25550 updates=18750
+[eval  ep 050] greedy_profit=2158407.4 ± 140721.2 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_raw94_dqn_rule_ws_best.pt (profit=2172611.0)
+[dqn/ws] best_eval=2172610.991666667 elapsed=26.9s
+
+===== TRAIN ddqn/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=ddqn forbid_expedite=True
+[eval  ep 005] greedy_profit=2141745.6 ± 127558.7 (n=3, days=365)
+[train ep 010/50] algo=ddqn steps=365 return=199.905 raw_profit=1999051.2 loss=0.12894 eps=0.759 buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2156643.8 ± 101360.9 (n=3, days=365)
+[eval  ep 015] greedy_profit=2154494.7 ± 104773.8 (n=3, days=365)
+[train ep 020/50] algo=ddqn steps=365 return=248.193 raw_profit=2481926.0 loss=0.45344 eps=0.518 buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2134239.7 ± 118972.9 (n=3, days=365)
+[eval  ep 025] greedy_profit=2144687.0 ± 123720.8 (n=3, days=365)
+[train ep 030/50] algo=ddqn steps=365 return=237.363 raw_profit=2373628.9 loss=0.67120 eps=0.277 buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2153166.0 ± 109487.7 (n=3, days=365)
+[eval  ep 035] greedy_profit=2126701.6 ± 100099.2 (n=3, days=365)
+[train ep 040/50] algo=ddqn steps=365 return=203.891 raw_profit=2038913.9 loss=1.19474 eps=0.036 buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2148223.4 ± 122340.8 (n=3, days=365)
+[eval  ep 045] greedy_profit=2152723.6 ± 99627.0 (n=3, days=365)
+[train ep 050/50] algo=ddqn steps=365 return=193.338 raw_profit=1933380.3 loss=1.62618 eps=0.010 buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2134018.8 ± 97290.3 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_raw94_ddqn_no_ws_best.pt (profit=2156643.8)
+[ddqn/no_ws] best_eval=2156643.766666667 elapsed=21.2s
+
+===== TRAIN ddqn/ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=ddqn forbid_expedite=True
+[warmstart] collecting 20 rule episodes (forbid_expedite=True) ...
+[warmstart rule ep 001/20] raw_profit=2113685.3 buf=365
+[warmstart rule ep 002/20] raw_profit=1985927.9 buf=730
+[warmstart rule ep 003/20] raw_profit=2198766.7 buf=1095
+[warmstart rule ep 004/20] raw_profit=2269048.3 buf=1460
+[warmstart rule ep 005/20] raw_profit=2125223.2 buf=1825
+[warmstart rule ep 006/20] raw_profit=2246858.4 buf=2190
+[warmstart rule ep 007/20] raw_profit=2000632.2 buf=2555
+[warmstart rule ep 008/20] raw_profit=2249510.2 buf=2920
+[warmstart rule ep 009/20] raw_profit=2088547.6 buf=3285
+[warmstart rule ep 010/20] raw_profit=2124873.6 buf=3650
+[warmstart rule ep 011/20] raw_profit=2203235.4 buf=4015
+[warmstart rule ep 012/20] raw_profit=2316572.0 buf=4380
+[warmstart rule ep 013/20] raw_profit=1941794.2 buf=4745
+[warmstart rule ep 014/20] raw_profit=2242409.7 buf=5110
+[warmstart rule ep 015/20] raw_profit=2233494.9 buf=5475
+[warmstart rule ep 016/20] raw_profit=2131914.2 buf=5840
+[warmstart rule ep 017/20] raw_profit=2222062.9 buf=6205
+[warmstart rule ep 018/20] raw_profit=2443244.2 buf=6570
+[warmstart rule ep 019/20] raw_profit=2254974.9 buf=6935
+[warmstart rule ep 020/20] raw_profit=2079305.2 buf=7300
+[warmstart] behavioral cloning 2000 updates ...
+[warmstart BC 0001/2000] loss=3.3177
+[warmstart BC 0400/2000] loss=0.0009
+[warmstart BC 0800/2000] loss=0.0003
+[warmstart BC 1200/2000] loss=0.0001
+[warmstart BC 1600/2000] loss=0.0001
+[warmstart BC 2000/2000] loss=0.0000
+[warmstart] pre-RL greedy eval profit=2171627.1 ± 126977.3
+[eval  ep 005] greedy_profit=2144276.9 ± 134741.6 (n=3, days=365)
+[train ep 010/50] algo=ddqn steps=365 return=205.785 raw_profit=2057853.4 loss=1.46874 eps=0.131 buf=10950 updates=4150
+[eval  ep 010] greedy_profit=2160057.1 ± 101286.2 (n=3, days=365)
+[eval  ep 015] greedy_profit=2174787.4 ± 126429.8 (n=3, days=365)
+[train ep 020/50] algo=ddqn steps=365 return=249.699 raw_profit=2496990.2 loss=1.96652 eps=0.061 buf=14600 updates=7800
+[eval  ep 020] greedy_profit=2150329.9 ± 149800.9 (n=3, days=365)
+[eval  ep 025] greedy_profit=2160161.2 ± 120623.8 (n=3, days=365)
+[train ep 030/50] algo=ddqn steps=365 return=239.765 raw_profit=2397649.6 loss=2.18546 eps=0.010 buf=18250 updates=11450
+[eval  ep 030] greedy_profit=2152594.7 ± 99780.9 (n=3, days=365)
+[eval  ep 035] greedy_profit=2139044.7 ± 122810.5 (n=3, days=365)
+[train ep 040/50] algo=ddqn steps=365 return=206.037 raw_profit=2060372.9 loss=2.71911 eps=0.010 buf=21900 updates=15100
+[eval  ep 040] greedy_profit=2150315.8 ± 119415.0 (n=3, days=365)
+[eval  ep 045] greedy_profit=2156689.1 ± 109129.6 (n=3, days=365)
+[train ep 050/50] algo=ddqn steps=365 return=190.833 raw_profit=1908325.4 loss=3.30000 eps=0.010 buf=25550 updates=18750
+[eval  ep 050] greedy_profit=2146832.9 ± 133344.2 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_raw94_ddqn_rule_ws_best.pt (profit=2174787.4)
+[ddqn/ws] best_eval=2174787.4166666646 elapsed=29.9s
+
+===== TRAIN dueling/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=dueling forbid_expedite=True
+[eval  ep 005] greedy_profit=2140610.8 ± 132522.5 (n=3, days=365)
+[train ep 010/50] algo=dueling steps=365 return=199.161 raw_profit=1991607.4 loss=0.10980 eps=0.759 buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2151033.2 ± 109057.6 (n=3, days=365)
+[eval  ep 015] greedy_profit=2118086.0 ± 129870.9 (n=3, days=365)
+[train ep 020/50] algo=dueling steps=365 return=246.506 raw_profit=2465059.9 loss=0.42823 eps=0.518 buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2153707.1 ± 112888.8 (n=3, days=365)
+[eval  ep 025] greedy_profit=2143251.5 ± 93564.8 (n=3, days=365)
+[train ep 030/50] algo=dueling steps=365 return=233.891 raw_profit=2338912.8 loss=0.65428 eps=0.277 buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2137395.4 ± 121634.5 (n=3, days=365)
+[eval  ep 035] greedy_profit=2123514.8 ± 90032.5 (n=3, days=365)
+[train ep 040/50] algo=dueling steps=365 return=201.434 raw_profit=2014343.8 loss=1.24648 eps=0.036 buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2150136.5 ± 128825.8 (n=3, days=365)
+[eval  ep 045] greedy_profit=2122736.5 ± 104560.6 (n=3, days=365)
+[train ep 050/50] algo=dueling steps=365 return=187.522 raw_profit=1875224.4 loss=1.42540 eps=0.010 buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2130235.0 ± 92719.1 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_raw94_dueling_no_ws_best.pt (profit=2153707.1)
+[dueling/no_ws] best_eval=2153707.0833333335 elapsed=25.4s
+
+===== TRAIN dueling/ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=dueling forbid_expedite=True
+[warmstart] collecting 20 rule episodes (forbid_expedite=True) ...
+[warmstart rule ep 001/20] raw_profit=2113685.3 buf=365
+[warmstart rule ep 002/20] raw_profit=1985927.9 buf=730
+[warmstart rule ep 003/20] raw_profit=2198766.7 buf=1095
+[warmstart rule ep 004/20] raw_profit=2269048.3 buf=1460
+[warmstart rule ep 005/20] raw_profit=2125223.2 buf=1825
+[warmstart rule ep 006/20] raw_profit=2246858.4 buf=2190
+[warmstart rule ep 007/20] raw_profit=2000632.2 buf=2555
+[warmstart rule ep 008/20] raw_profit=2249510.2 buf=2920
+[warmstart rule ep 009/20] raw_profit=2088547.6 buf=3285
+[warmstart rule ep 010/20] raw_profit=2124873.6 buf=3650
+[warmstart rule ep 011/20] raw_profit=2203235.4 buf=4015
+[warmstart rule ep 012/20] raw_profit=2316572.0 buf=4380
+[warmstart rule ep 013/20] raw_profit=1941794.2 buf=4745
+[warmstart rule ep 014/20] raw_profit=2242409.7 buf=5110
+[warmstart rule ep 015/20] raw_profit=2233494.9 buf=5475
+[warmstart rule ep 016/20] raw_profit=2131914.2 buf=5840
+[warmstart rule ep 017/20] raw_profit=2222062.9 buf=6205
+[warmstart rule ep 018/20] raw_profit=2443244.2 buf=6570
+[warmstart rule ep 019/20] raw_profit=2254974.9 buf=6935
+[warmstart rule ep 020/20] raw_profit=2079305.2 buf=7300
+[warmstart] behavioral cloning 2000 updates ...
+[warmstart BC 0001/2000] loss=2.3652
+[warmstart BC 0400/2000] loss=0.0009
+[warmstart BC 0800/2000] loss=0.0003
+[warmstart BC 1200/2000] loss=0.0001
+[warmstart BC 1600/2000] loss=0.0001
+[warmstart BC 2000/2000] loss=0.0001
+[warmstart] pre-RL greedy eval profit=2057782.9 ± 126586.6
+[eval  ep 005] greedy_profit=2089121.8 ± 123452.6 (n=3, days=365)
+[train ep 010/50] algo=dueling steps=365 return=196.572 raw_profit=1965723.1 loss=7096.52345 eps=0.131 buf=10950 updates=4150
+[eval  ep 010] greedy_profit=2066670.3 ± 138233.4 (n=3, days=365)
+[eval  ep 015] greedy_profit=2082183.9 ± 111791.0 (n=3, days=365)
+[train ep 020/50] algo=dueling steps=365 return=248.492 raw_profit=2484915.1 loss=2947.28545 eps=0.061 buf=14600 updates=7800
+[eval  ep 020] greedy_profit=2135627.4 ± 124836.8 (n=3, days=365)
+[eval  ep 025] greedy_profit=2119505.4 ± 120458.4 (n=3, days=365)
+[train ep 030/50] algo=dueling steps=365 return=235.800 raw_profit=2357998.6 loss=1858.77495 eps=0.010 buf=18250 updates=11450
+[eval  ep 030] greedy_profit=2128290.3 ± 127599.0 (n=3, days=365)
+[eval  ep 035] greedy_profit=2089511.4 ± 100150.8 (n=3, days=365)
+[train ep 040/50] algo=dueling steps=365 return=196.183 raw_profit=1961832.4 loss=1447.60454 eps=0.010 buf=21900 updates=15100
+[eval  ep 040] greedy_profit=2104441.8 ± 104158.2 (n=3, days=365)
+[eval  ep 045] greedy_profit=2113903.3 ± 116141.6 (n=3, days=365)
+[train ep 050/50] algo=dueling steps=365 return=183.865 raw_profit=1838650.6 loss=1221.43107 eps=0.010 buf=25550 updates=18750
+[eval  ep 050] greedy_profit=2099606.3 ± 93192.8 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_raw94_dueling_rule_ws_best.pt (profit=2135627.4)
+[dueling/ws] best_eval=2135627.3666666667 elapsed=33.4s
+
+===== TRAIN d3qn/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=d3qn forbid_expedite=True
+[eval  ep 005] greedy_profit=2130956.6 ± 103711.3 (n=3, days=365)
+[train ep 010/50] algo=d3qn steps=365 return=199.843 raw_profit=1998433.2 loss=0.09847 eps=0.759 buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2142046.4 ± 123462.3 (n=3, days=365)
+[eval  ep 015] greedy_profit=2138723.7 ± 83929.7 (n=3, days=365)
+[train ep 020/50] algo=d3qn steps=365 return=246.815 raw_profit=2468150.7 loss=0.37545 eps=0.518 buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2143225.1 ± 119920.9 (n=3, days=365)
+[eval  ep 025] greedy_profit=2134914.3 ± 98684.0 (n=3, days=365)
+[train ep 030/50] algo=d3qn steps=365 return=234.838 raw_profit=2348382.8 loss=0.57866 eps=0.277 buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2127204.0 ± 108899.7 (n=3, days=365)
+[eval  ep 035] greedy_profit=2105388.9 ± 126958.8 (n=3, days=365)
+[train ep 040/50] algo=d3qn steps=365 return=202.328 raw_profit=2023278.1 loss=0.97700 eps=0.036 buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2115684.9 ± 127081.3 (n=3, days=365)
+[eval  ep 045] greedy_profit=2098021.0 ± 110930.5 (n=3, days=365)
+[train ep 050/50] algo=d3qn steps=365 return=186.196 raw_profit=1861959.8 loss=1.23531 eps=0.010 buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2137348.5 ± 100467.3 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_raw94_d3qn_no_ws_best.pt (profit=2143225.1)
+[d3qn/no_ws] best_eval=2143225.141666667 elapsed=26.9s
+
+===== TRAIN d3qn/ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=d3qn forbid_expedite=True
+[warmstart] collecting 20 rule episodes (forbid_expedite=True) ...
+[warmstart rule ep 001/20] raw_profit=2113685.3 buf=365
+[warmstart rule ep 002/20] raw_profit=1985927.9 buf=730
+[warmstart rule ep 003/20] raw_profit=2198766.7 buf=1095
+[warmstart rule ep 004/20] raw_profit=2269048.3 buf=1460
+[warmstart rule ep 005/20] raw_profit=2125223.2 buf=1825
+[warmstart rule ep 006/20] raw_profit=2246858.4 buf=2190
+[warmstart rule ep 007/20] raw_profit=2000632.2 buf=2555
+[warmstart rule ep 008/20] raw_profit=2249510.2 buf=2920
+[warmstart rule ep 009/20] raw_profit=2088547.6 buf=3285
+[warmstart rule ep 010/20] raw_profit=2124873.6 buf=3650
+[warmstart rule ep 011/20] raw_profit=2203235.4 buf=4015
+[warmstart rule ep 012/20] raw_profit=2316572.0 buf=4380
+[warmstart rule ep 013/20] raw_profit=1941794.2 buf=4745
+[warmstart rule ep 014/20] raw_profit=2242409.7 buf=5110
+[warmstart rule ep 015/20] raw_profit=2233494.9 buf=5475
+[warmstart rule ep 016/20] raw_profit=2131914.2 buf=5840
+[warmstart rule ep 017/20] raw_profit=2222062.9 buf=6205
+[warmstart rule ep 018/20] raw_profit=2443244.2 buf=6570
+[warmstart rule ep 019/20] raw_profit=2254974.9 buf=6935
+[warmstart rule ep 020/20] raw_profit=2079305.2 buf=7300
+[warmstart] behavioral cloning 2000 updates ...
+[warmstart BC 0001/2000] loss=2.3652
+[warmstart BC 0400/2000] loss=0.0009
+[warmstart BC 0800/2000] loss=0.0003
+[warmstart BC 1200/2000] loss=0.0001
+[warmstart BC 1600/2000] loss=0.0001
+[warmstart BC 2000/2000] loss=0.0001
+[warmstart] pre-RL greedy eval profit=2057782.9 ± 126586.6
+[eval  ep 005] greedy_profit=2084323.0 ± 107252.4 (n=3, days=365)
+[train ep 010/50] algo=d3qn steps=365 return=196.646 raw_profit=1966459.3 loss=7052.08023 eps=0.131 buf=10950 updates=4150
+[eval  ep 010] greedy_profit=2063657.4 ± 119382.2 (n=3, days=365)
+[eval  ep 015] greedy_profit=2089123.3 ± 124943.5 (n=3, days=365)
+[train ep 020/50] algo=d3qn steps=365 return=246.167 raw_profit=2461668.5 loss=3021.73307 eps=0.061 buf=14600 updates=7800
+[eval  ep 020] greedy_profit=2082843.1 ± 86474.6 (n=3, days=365)
+[eval  ep 025] greedy_profit=2086966.5 ± 104894.7 (n=3, days=365)
+[train ep 030/50] algo=d3qn steps=365 return=230.721 raw_profit=2307206.8 loss=1988.35577 eps=0.010 buf=18250 updates=11450
+[eval  ep 030] greedy_profit=2134247.9 ± 125920.8 (n=3, days=365)
+[eval  ep 035] greedy_profit=2095721.9 ± 110433.8 (n=3, days=365)
+[train ep 040/50] algo=d3qn steps=365 return=198.109 raw_profit=1981086.2 loss=1543.64320 eps=0.010 buf=21900 updates=15100
+[eval  ep 040] greedy_profit=2091424.1 ± 118839.5 (n=3, days=365)
+[eval  ep 045] greedy_profit=2105446.7 ± 118827.2 (n=3, days=365)
+[train ep 050/50] algo=d3qn steps=365 return=192.253 raw_profit=1922532.8 loss=1344.40107 eps=0.010 buf=25550 updates=18750
+[eval  ep 050] greedy_profit=2147319.9 ± 102001.1 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_raw94_d3qn_rule_ws_best.pt (profit=2147319.9)
+[d3qn/ws] best_eval=2147319.858333334 elapsed=32.7s
+
+===== TRAIN ppo/no_ws =====
+[train PPO] encoder=raw dim=94 n_actions=18 forbid_e1=True
+[train PPO ep 001/50] raw_profit=2103969.2 loss=42.0180
+[eval  PPO ep 005] greedy_profit=2101337.1 ± 134148.0
+[train PPO ep 010/50] raw_profit=2018367.5 loss=27.0421
+[eval  PPO ep 010] greedy_profit=2165577.4 ± 99677.3
+[eval  PPO ep 015] greedy_profit=2080010.4 ± 127874.1
+[train PPO ep 020/50] raw_profit=2477078.5 loss=25.5872
+[eval  PPO ep 020] greedy_profit=2101337.1 ± 134148.0
+[eval  PPO ep 025] greedy_profit=2101337.1 ± 134148.0
+[train PPO ep 030/50] raw_profit=2386786.0 loss=29.2886
+[eval  PPO ep 030] greedy_profit=2101337.1 ± 134148.0
+[eval  PPO ep 035] greedy_profit=2101337.1 ± 134148.0
+[train PPO ep 040/50] raw_profit=2022907.7 loss=22.0124
+[eval  PPO ep 040] greedy_profit=2101337.1 ± 134148.0
+[eval  PPO ep 045] greedy_profit=2166767.3 ± 110600.8
+[train PPO ep 050/50] raw_profit=1942685.4 loss=21.4067
+[eval  PPO ep 050] greedy_profit=2166767.3 ± 110600.8
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_raw94_ppo_no_ws_best.pt (profit=2166767.3)
+[ppo/no_ws] best_eval=2166767.2999999993 elapsed=15.8s
+
+===== TRAIN ppo/ws =====
+[train PPO] encoder=raw dim=94 n_actions=18 forbid_e1=True
+[warmstart] collecting 20 rule episodes ...
+[warmstart PPO-BC 0001/2000] loss=2.1987
+[warmstart PPO-BC 0400/2000] loss=0.0014
+[warmstart PPO-BC 0800/2000] loss=0.0002
+[warmstart PPO-BC 1200/2000] loss=0.0001
+[warmstart PPO-BC 1600/2000] loss=0.0000
+[warmstart PPO-BC 2000/2000] loss=0.0000
+[warmstart] pre-RL greedy eval=2171627.1
+[train PPO ep 001/50] raw_profit=2125227.7 loss=28.5314
+[eval  PPO ep 005] greedy_profit=2171627.1 ± 126977.3
+[train PPO ep 010/50] raw_profit=2081597.8 loss=42.7171
+[eval  PPO ep 010] greedy_profit=2172871.5 ± 120211.1
+[eval  PPO ep 015] greedy_profit=2172597.6 ± 126586.1
+[train PPO ep 020/50] raw_profit=2529312.9 loss=27.6971
+[eval  PPO ep 020] greedy_profit=2170777.9 ± 126106.3
+[eval  PPO ep 025] greedy_profit=2172385.9 ± 121198.0
+[train PPO ep 030/50] raw_profit=2407407.8 loss=28.4334
+[eval  PPO ep 030] greedy_profit=2173733.1 ± 122192.3
+[eval  PPO ep 035] greedy_profit=2167796.7 ± 121790.9
+[train PPO ep 040/50] raw_profit=2077997.7 loss=25.8804
+[eval  PPO ep 040] greedy_profit=2172982.3 ± 121796.0
+[eval  PPO ep 045] greedy_profit=2169887.6 ± 124332.8
+[train PPO ep 050/50] raw_profit=1964298.3 loss=22.5780
+[eval  PPO ep 050] greedy_profit=2169784.1 ± 112777.9
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_raw94_ppo_rule_ws_best.pt (profit=2173733.1)
+[ppo/ws] best_eval=2173733.066666667 elapsed=22.5s
+
+===== 30-rep baselines =====
+  fixed_0_(s,S): 1987242.83 ± 67121.16
+  best_fixed_12: 2155239.64 ± 57518.15
+  rule_based: 2143906.96 ± 59791.66
+
+===== EVAL dqn/no_ws =====
+  dqn/no_ws mean=2111863.44 ± 61566.09
+
+===== EVAL dqn/ws =====
+  dqn/ws mean=2136410.92 ± 57482.41
+
+===== EVAL ddqn/no_ws =====
+  ddqn/no_ws mean=2105781.69 ± 63252.76
+
+===== EVAL ddqn/ws =====
+  ddqn/ws mean=2136920.35 ± 59921.79
+
+===== EVAL dueling/no_ws =====
+  dueling/no_ws mean=2113089.26 ± 56952.08
+
+===== EVAL dueling/ws =====
+  dueling/ws mean=2092895.40 ± 60368.87
+
+===== EVAL d3qn/no_ws =====
+  d3qn/no_ws mean=2110254.74 ± 63070.95
+
+===== EVAL d3qn/ws =====
+  d3qn/ws mean=2116717.97 ± 60908.86
+
+===== EVAL ppo/no_ws =====
+  ppo/no_ws mean=2134984.98 ± 59019.06
+
+===== EVAL ppo/ws =====
+  ppo/ws mean=2145550.95 ± 60977.08
+
+Algorithm × warmstart comparison (raw 94-d state, coarse actions)
+Run at: 2026-07-29T13:31:09
+profile: harsh_strong
+state_encoder: raw (94)
+action_space: coarse (18; forbid_e1 → 9 legal)
+episodes: 50
+n_rep: 30 seeds 42..71
+demand_intensity_scale: 1.2
+
+Warmstart = 20 rule episodes + BC 2000 (+ TD-pre 500 for value methods).
+No-ws = learn from scratch (ε: 1→0.01 for value methods).
+
+algo        ws       profit        ±CI      Δrule      Δbest
+dqn          N   2111863.44   61566.09  -32043.52  -43376.20
+dqn          Y   2136410.92   57482.41   -7496.04  -18828.72
+ddqn         N   2105781.69   63252.76  -38125.28  -49457.95
+ddqn         Y   2136920.35   59921.79   -6986.61  -18319.29
+dueling      N   2113089.26   56952.08  -30817.70  -42150.38
+dueling      Y   2092895.40   60368.87  -51011.56  -62344.23
+d3qn         N   2110254.74   63070.95  -33652.22  -44984.90
+d3qn         Y   2116717.97   60908.86  -27188.99  -38521.67
+ppo          N   2134984.98   59019.06   -8921.98  -20254.66
+ppo          Y   2145550.95   60977.08   +1643.99   -9688.69
+
+baselines: rule=2143906.96±59791.66 | best_fixed_12=2155239.64±57518.15 | fixed_0_(s,S)=1987242.83±67121.16
+
+Warmstart lift (ws − no_ws):
+  dqn        +24547.48
+  ddqn       +31138.66
+  dueling    -20193.85
+  d3qn       +6463.22
+  ppo        +10565.96
+
+log → /Users/oliverhuang/Desktop/2026_furp_零售/logs/algo_warmstart_raw94_harsh_strong_30rep.log

@@ -1,0 +1,35 @@
+Scenario: Baseline (no disruption, always A0/U0)
+Run at: 2026-07-17T13:11:24
+disruption_mode: none
+enable_disruption: False
+Replications: 30 (30 warmup + 365 evaluation days)
+random_seed_base: 42
+
+=== Summary (mean ± 95% CI) ===
+
+total_profit: 2577554.1258 ± 2882.3908
+fill_rate: 0.9994 ± 0.0000
+lost_sales_rate: 0.0006 ± 0.0000
+avg_forward_inventory: 20.0633 ± 0.0096
+avg_central_inventory: 261.3692 ± 1.7053
+
+--- CW shortage frequency by product ---
+P1: 0.0280 ± 0.0037
+P2: 0.0240 ± 0.0018
+P3: 0.0219 ± 0.0029
+P4: 0.0169 ± 0.0021
+P5: 0.0150 ± 0.0028
+
+--- CW zero-inventory days by product (end-of-day) ---
+P1: 0.0288 ± 0.0039
+P2: 0.0251 ± 0.0020
+P3: 0.0226 ± 0.0029
+P4: 0.0184 ± 0.0021
+P5: 0.0167 ± 0.0030
+
+--- FW stockout days by product (lost_sales > 0) ---
+P1: 0.0027 ± 0.0003
+P2: 0.0029 ± 0.0003
+P3: 0.0030 ± 0.0004
+P4: 0.0026 ± 0.0003
+P5: 0.0020 ± 0.0003

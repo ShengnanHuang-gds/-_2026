@@ -1,0 +1,32 @@
+Warm-start strength ablation A/B/C (+D)
+Run at: 2026-07-29T12:54:03
+profile: harsh_strong
+forbid_expedite: True
+n_rep: 30 seeds 42..71
+train_episodes: 50
+demand_intensity_scale: 1.2
+
+var  label                  DDQN         ±CI      Δrule      Δbest   ell2|sev  agree_r
+A    no_warmstart     2105781.69   63252.76  -38125.27  -49457.95     39.7%     7.1%
+B    prefill_only     2121941.79   59846.05  -21965.17  -33297.85     66.7%    26.2%
+C    light_bc_200     2144850.43   59826.01    +943.47  -10389.21    100.0%    99.5%
+D    heavy_bc_2000    2136920.35   59921.79   -6986.61  -18319.29     79.5%    29.2%
+
+--   rule_based       2143906.96   59791.66
+--   best_fixed_12    2155239.64   57518.15
+--   fixed_0_(s,S)    1987242.83   67121.16
+
+Train notes:
+  A: eps 1.0→0.01, no warmstart; best_eval during train ~2.14M (3-seed)
+  B: 20 rule episodes prefill, no BC, no TD-pre; eps 0.2→0.01
+  C: 20 prefill + BC 200 + TD-pre 500; best ckpt = pre-RL (BC clone, 2.1716M)
+  D: prior run, BC 2000; best at RL ep 015 (2.1748M), then drifted
+
+Interpretation:
+  - Profit rises A→B→C toward rule; none beat best_fixed_12.
+  - BC strength ↑ → rule agreement ↑ (A 7% → B 26% → C 99.5%).
+  - C essentially locks to rule (ell=2 on all severe days); saved weights ≈ pre-RL BC.
+  - D is not “more locked” than C on the saved best ckpt because RL fine-tune moved
+    off the pure clone (agree_rule only 29%) and slightly hurt profit vs C/rule.
+  - Bottom line: stronger imitation → more rule-like; RL here does not discover a
+    better-than-rule/best_fixed policy under forbid_e1 + this budget.

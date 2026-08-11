@@ -1,0 +1,24 @@
+Rule-buffer mask ablation (harsh_strong, raw94, forbid_e1)
+Run at: 2026-07-29T20:29:31
+dos_threshold=1.0
+episodes=50 n_rep=30
+
+Rule: severe OR min DOS < threshold → only ell=2 legal.
+
+algo      ws     mask       profit        ±CI   ell2|sev      Δrule      Δbest
+ddqn       N      OFF   2105781.69   63252.76      39.7%  -38125.28  -49457.95
+ddqn       N       ON   2144940.03   58690.12     100.0%   +1033.07  -10299.61
+ddqn       Y      OFF   2136920.35   59921.79      79.5%   -6986.61  -18319.29
+ddqn       Y       ON   2151873.53   58142.15     100.0%   +7966.57   -3366.11
+ppo        N      OFF   2134984.98   59019.06     100.0%   -8921.98  -20254.66
+ppo        N       ON   2156735.41   58262.52     100.0%  +12828.45   +1495.77
+ppo        Y      OFF   2145550.95   60977.08     100.0%   +1643.99   -9688.69
+ppo        Y       ON   2156556.27   58454.94     100.0%  +12649.31   +1316.63
+
+baselines: rule=2143906.96±59791.66 | best_fixed_12=2155239.64±57518.15
+
+Mask lift (ON − OFF) by algo/ws:
+  ddqn/no_ws: +39158.34 (ell2|sev 40%→100%)
+  ddqn/ws: +14953.18 (ell2|sev 80%→100%)
+  ppo/no_ws: +21750.43 (ell2|sev 100%→100%)
+  ppo/ws: +11005.32 (ell2|sev 100%→100%)

@@ -1,0 +1,40 @@
+DDQN + rule warm-start (forbid e=1)
+Run at: 2026-07-29T12:40:39
+profile: pdf
+forbid_expedite: True
+demand_intensity_scale: 1.2
+warmstart_episodes: 20
+bc_updates: 2000  bc_lr: 0.001
+rl_episodes: 50
+eps: 0.2 → 0.01 over 10000
+lr: 0.0003
+
+warmstart transitions: 7300
+warmstart rule mean raw profit: 2567332.3425000003
+warmstart pre-RL greedy eval: 2576065.391666666
+td_pre_updates: 500
+
+best_eval_profit: 2576065.391666666
+final_eps: 0.010000000000000009
+global_steps: 18250
+updates: 18750
+elapsed_sec: 19.2
+checkpoint: /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_pdf_forbid_e1_rule_ws_best.pt
+
+=== eval history ===
+ep 005: 2562202.7 ± 12476.9
+ep 010: 2547674.0 ± 12182.9
+ep 015: 2543102.9 ± 12572.7
+ep 020: 2564195.6 ± 12372.8
+ep 025: 2545084.2 ± 13929.1
+ep 030: 2543767.7 ± 12563.5
+ep 035: 2547088.5 ± 12809.8
+ep 040: 2550472.9 ± 12392.6
+ep 045: 2546991.7 ± 10517.8
+ep 050: 2537324.2 ± 12218.6
+
+Reference (same setting, 10-rep comparison logs):
+  fixed_0 ≈ 1.960M
+  best_fixed_12 ≈ 2.129M
+  rule_based ≈ 2.126M
+  ddqn forbid (no warmstart) ≈ 2.070M

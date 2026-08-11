@@ -1,0 +1,39 @@
+Scenario: Expedite e=1 (ell=0, g=lowest_dos)
+Run at: 2026-07-17T14:59:30
+
+=== Experiment parameters ===
+disruption_mode: both
+enable_disruption: True
+warmup_days: 30
+evaluation_days: 365
+num_replications: 30
+random_seed_base: 42
+central_warehouse_capacity: 3600
+forward_warehouse_capacity: 160
+demand_intensity_scale: 1.2
+forward_holding_cost_ratio: 3.0
+supplier_lead_time_mode: baseline
+
+=== Fixed MDP action dimensions ===
+ell: 0 (no buffer uplift)
+allocation g: 1 (lowest_dos)
+varied: expedite e only
+note: action_id 0 is NOT used (would shortcut to Phase-2 path)
+
+=== Action parameters ===
+action_id: 4
+action (ell, e, g): (0, 1, 1)
+expedite: 1
+eta_central_reorder: 1.0
+eta_central_order_up_to: 1.0
+eta_forward_reorder: 1.0
+allocation_rule: lowest_dos
+
+=== Summary (mean ± 95% CI) ===
+
+total_profit: 2411015.1742 ± 4744.4895
+total_expedite_cost: 145710.3083 ± 236.3845
+fill_rate: 0.9984 ± 0.0010
+lost_sales_rate: 0.0016 ± 0.0010
+average_forward_inventory: 20.0643 ± 0.0380
+average_central_inventory: 307.9106 ± 1.8530

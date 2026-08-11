@@ -1,0 +1,33 @@
+=== Fixed-action grid experiment ===
+Run at: 2026-07-17T15:55:38
+Scenarios: ['Baseline', 'Supply-only', 'Transport-only', 'Both']
+Actions: 18 (action_id 0..17)
+warmup_days: 30
+evaluation_days: 365
+num_replications: 30
+random_seed_base: 42
+central_warehouse_capacity: 3600
+forward_warehouse_capacity: 160
+demand_intensity_scale: 1.2
+forward_holding_cost_ratio: 3.0
+supplier_lead_time_mode: baseline
+
+Action map (action_id -> (ell, e, g, g_name)):
+   0: ell=0 e=0 g=0 (proportional)
+   1: ell=0 e=0 g=1 (lowest_dos)
+   2: ell=0 e=0 g=2 (value_penalty)
+   3: ell=0 e=1 g=0 (proportional)
+   4: ell=0 e=1 g=1 (lowest_dos)
+   5: ell=0 e=1 g=2 (value_penalty)
+   6: ell=1 e=0 g=0 (proportional)
+   7: ell=1 e=0 g=1 (lowest_dos)
+   8: ell=1 e=0 g=2 (value_penalty)
+   9: ell=1 e=1 g=0 (proportional)
+  10: ell=1 e=1 g=1 (lowest_dos)
+  11: ell=1 e=1 g=2 (value_penalty)
+  12: ell=2 e=0 g=0 (proportional)
+  13: ell=2 e=0 g=1 (lowest_dos)
+  14: ell=2 e=0 g=2 (value_penalty)
+  15: ell=2 e=1 g=0 (proportional)
+  16: ell=2 e=1 g=1 (lowest_dos)
+  17: ell=2 e=1 g=2 (value_penalty)

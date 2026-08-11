@@ -1,0 +1,34 @@
+Scenario: policy baselines / matrix=pdf
+Description: PDF default (mild; ~97% time in A0/U0)
+Run at: 2026-07-27T13:47:49
+disruption_mode: both
+disruption_matrix_profile: pdf
+Replications: 30 (30 warmup + 365 eval)
+random_seed_base: 42
+demand_intensity_scale: 1.2
+
+Rule (v1): A0/U0→(0,0,1); mild A1/U1→(1,0,1); severe A>=2 or U>=2→(2,0,1); U3 keeps e=0
+
+=== fixed_0_(s,S) ===
+  total_profit: 2573988.5950 ± 6246.9182
+  fill_rate: 0.9976 ± 0.0015
+  lost_sales_rate: 0.0024 ± 0.0015
+  average_forward_inventory: 19.9884 ± 0.0547
+  average_central_inventory: 255.1270 ± 2.0508
+  total_expedite_cost: 0.0000 ± 0.0000
+
+=== best_fixed_1 ===
+  total_profit: 2574056.0542 ± 6180.3854
+  fill_rate: 0.9977 ± 0.0015
+  lost_sales_rate: 0.0023 ± 0.0015
+  average_forward_inventory: 19.9865 ± 0.0539
+  average_central_inventory: 255.2429 ± 1.9724
+  total_expedite_cost: 0.0000 ± 0.0000
+
+=== rule_based ===
+  total_profit: 2574862.6600 ± 5639.4819
+  fill_rate: 0.9984 ± 0.0012
+  lost_sales_rate: 0.0016 ± 0.0012
+  average_forward_inventory: 20.0414 ± 0.0373
+  average_central_inventory: 258.6881 ± 1.8637
+  total_expedite_cost: 0.0000 ± 0.0000

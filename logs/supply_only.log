@@ -1,0 +1,35 @@
+Scenario: Supply only (A evolves, U fixed at U0)
+Run at: 2026-07-17T13:11:25
+disruption_mode: supply_only
+enable_disruption: True
+Replications: 30 (30 warmup + 365 evaluation days)
+random_seed_base: 42
+
+=== Summary (mean ± 95% CI) ===
+
+total_profit: 2575261.3417 ± 4233.9493
+fill_rate: 0.9984 ± 0.0010
+lost_sales_rate: 0.0016 ± 0.0010
+avg_forward_inventory: 20.0349 ± 0.0319
+avg_central_inventory: 258.1086 ± 2.1845
+
+--- CW shortage frequency by product ---
+P1: 0.0297 ± 0.0040
+P2: 0.0280 ± 0.0035
+P3: 0.0258 ± 0.0039
+P4: 0.0200 ± 0.0030
+P5: 0.0176 ± 0.0043
+
+--- CW zero-inventory days by product (end-of-day) ---
+P1: 0.0300 ± 0.0040
+P2: 0.0289 ± 0.0035
+P3: 0.0271 ± 0.0041
+P4: 0.0216 ± 0.0031
+P5: 0.0194 ± 0.0044
+
+--- FW stockout days by product (lost_sales > 0) ---
+P1: 0.0040 ± 0.0014
+P2: 0.0042 ± 0.0011
+P3: 0.0042 ± 0.0012
+P4: 0.0033 ± 0.0007
+P5: 0.0025 ± 0.0006

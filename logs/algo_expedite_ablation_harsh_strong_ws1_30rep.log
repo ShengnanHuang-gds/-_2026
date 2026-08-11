@@ -1,0 +1,24 @@
+RL algos × forbid_e1 vs allow_e1
+Run at: 2026-07-30T15:15:47
+profile=harsh_strong raw94 coarse rule_ws=True episodes=50 n_rep=30
+
+algo         e1       profit        ±CI  greedy_e1   train_e1   e1_legal      Δrule      Δbest
+dqn      forbid   2136410.92   57482.41       0.0%       0.0%       0.0%   -7496.04  -18828.72
+dqn       allow   2161062.38   54138.58      39.6%      32.6%      83.4%  +17155.42   +5822.75
+ddqn     forbid   2136920.35   59921.79       0.0%       0.0%       0.0%   -6986.61  -18319.29
+ddqn      allow   2145123.84   56759.22      34.2%      35.2%      83.4%   +1216.87  -10115.80
+dueling  forbid   2092895.40   60368.87       0.0%       0.0%       0.0%  -51011.56  -62344.23
+dueling   allow   2056041.70   64084.92      14.7%      14.1%      83.4%  -87865.26  -99197.93
+d3qn     forbid   2116717.97   60908.86       0.0%       0.0%       0.0%  -27188.99  -38521.67
+d3qn      allow   2111909.17   58539.61      35.3%      28.6%      83.4%  -31997.79  -43330.46
+ppo      forbid   2144332.85   59788.34       0.0%       0.0%       0.0%    +425.89  -10906.79
+ppo       allow   2140154.13   59293.95       0.0%       0.0%      83.4%   -3752.83  -15085.50
+
+Allow − forbid lift by algo:
+  dqn: profit +24651.46 | greedy_e1 0.0%→39.6% | train_e1 0.0%→32.6% | e1_legal 0.0%→83.4%
+  ddqn: profit +8203.49 | greedy_e1 0.0%→34.2% | train_e1 0.0%→35.2% | e1_legal 0.0%→83.4%
+  dueling: profit -36853.70 | greedy_e1 0.0%→14.7% | train_e1 0.0%→14.1% | e1_legal 0.0%→83.4%
+  d3qn: profit -4808.79 | greedy_e1 0.0%→35.3% | train_e1 0.0%→28.6% | e1_legal 0.0%→83.4%
+  ppo: profit -4178.71 | greedy_e1 0.0%→0.0% | train_e1 0.0%→0.0% | e1_legal 0.0%→83.4%
+
+baselines: rule=2143906.96±59791.66 | best_fixed_12=2155239.64±57518.15

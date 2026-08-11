@@ -1,0 +1,38 @@
+DDQN full-horizon training
+Run at: 2026-07-29T11:38:23
+algorithm: ddqn
+profile: harsh_mild
+mode: both
+warmup_days: 2
+train evaluation_days: 15
+episodes: 3
+reward_scale: 10000.0
+gamma: 0.99  lr: 0.0003
+batch_size: 32  start_learning_after: 32
+buffer_capacity: 100000
+target_update_every: 500
+eps: 1.0 → 0.01 over 200 steps
+eval_every: 3  eval_days: 15  eval_seeds: 1
+seed: 42  device: cpu
+
+global_steps: 45
+updates: 14
+elapsed_sec: 0.03
+buffer_size: 45
+final_eps: 0.7772
+best_eval_profit: 87895.55
+
+=== train episodes ===
+episode | scaled_return | raw_profit | mean_loss
+      1 |         8.356 |    83564.0 | nan
+      2 |         8.213 |    82128.9 | nan
+      3 |         8.563 |    85628.5 | 3.06553
+
+=== greedy eval (full horizon) ===
+episode | mean_profit | std_profit | profits
+      3 |     87895.6 |        0.0 | [87895.6]
+
+Baseline reference (harsh_mild, from logs/policy_baselines_harsh_mild.log):
+  fixed_0 ≈ 2.453e6
+  best_fixed_13 ≈ 2.467e6
+  rule_based ≈ 2.486e6

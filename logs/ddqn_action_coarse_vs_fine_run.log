@@ -1,0 +1,69 @@
+
+===== TRAIN action_space=coarse =====
+[train] state_encoder=risk dim=33 action_space=coarse n_actions=18 algo=ddqn forbid_expedite=True
+[eval  ep 005] greedy_profit=2147779.7 ± 115755.5 (n=3, days=365)
+[train ep 010/50] algo=ddqn steps=365 return=200.389 raw_profit=2003893.4 loss=0.43969 eps=0.759 buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2135213.1 ± 130512.2 (n=3, days=365)
+[eval  ep 015] greedy_profit=2135393.1 ± 87699.4 (n=3, days=365)
+[train ep 020/50] algo=ddqn steps=365 return=246.941 raw_profit=2469410.8 loss=1.12549 eps=0.518 buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2153581.1 ± 128733.8 (n=3, days=365)
+[eval  ep 025] greedy_profit=2115511.4 ± 121639.6 (n=3, days=365)
+[train ep 030/50] algo=ddqn steps=365 return=231.668 raw_profit=2316682.4 loss=1.48163 eps=0.277 buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2152372.8 ± 118253.4 (n=3, days=365)
+[eval  ep 035] greedy_profit=2144373.3 ± 127611.0 (n=3, days=365)
+[train ep 040/50] algo=ddqn steps=365 return=201.672 raw_profit=2016721.7 loss=2.38233 eps=0.036 buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2122164.0 ± 122329.7 (n=3, days=365)
+[eval  ep 045] greedy_profit=2123622.5 ± 104453.1 (n=3, days=365)
+[train ep 050/50] algo=ddqn steps=365 return=190.259 raw_profit=1902593.6 loss=2.76621 eps=0.010 buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2123712.9 ± 114517.8 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_forbid_e1_risk_coarse_best.pt (profit=2153581.1)
+[coarse] best_eval=2153581.12
+
+===== TRAIN action_space=fine =====
+[train] state_encoder=risk dim=33 action_space=fine n_actions=108 algo=ddqn forbid_expedite=True
+[eval  ep 005] greedy_profit=2155221.4 ± 115141.0 (n=3, days=365)
+[train ep 010/50] algo=ddqn steps=365 return=199.107 raw_profit=1991067.7 loss=1.10747 eps=0.759 buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2132225.0 ± 96053.2 (n=3, days=365)
+[eval  ep 015] greedy_profit=2127555.9 ± 121320.0 (n=3, days=365)
+[train ep 020/50] algo=ddqn steps=365 return=247.498 raw_profit=2474976.2 loss=2.90177 eps=0.518 buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2161504.1 ± 117247.2 (n=3, days=365)
+[eval  ep 025] greedy_profit=2138024.5 ± 103688.7 (n=3, days=365)
+[train ep 030/50] algo=ddqn steps=365 return=235.306 raw_profit=2353060.5 loss=4.08095 eps=0.277 buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2146063.0 ± 108404.1 (n=3, days=365)
+[eval  ep 035] greedy_profit=2142598.0 ± 110668.7 (n=3, days=365)
+[train ep 040/50] algo=ddqn steps=365 return=204.409 raw_profit=2044087.2 loss=5.37234 eps=0.036 buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2148576.0 ± 120299.2 (n=3, days=365)
+[eval  ep 045] greedy_profit=2107089.7 ± 116825.4 (n=3, days=365)
+[train ep 050/50] algo=ddqn steps=365 return=190.244 raw_profit=1902442.4 loss=5.63983 eps=0.010 buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2125843.0 ± 81825.3 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_forbid_e1_risk_fine_best.pt (profit=2161504.1)
+[fine] best_eval=2161504.14
+
+===== 30-rep baselines (coarse) =====
+  fixed_0_(s,S): 1987242.83 ± 67121.16
+  best_fixed_12: 2155239.64 ± 57518.15
+  rule_based: 2143906.96 ± 59791.66
+
+===== EVAL action_space=coarse dim=33 n_act=18 =====
+  DDQN(coarse) mean=2110487.69 ± 59878.01 focus≠none=0.0% ell2|sev=41.0%
+
+===== EVAL action_space=fine dim=33 n_act=108 =====
+  DDQN(fine) mean=2104579.38 ± 61175.74 focus≠none=87.1% ell2|sev=36.1%
+
+Coarse vs Fine (Plan A) action-space comparison
+Run at: 2026-07-29T13:12:58
+profile: harsh_strong
+encoder: risk
+forbid_expedite: True
+episodes: 50
+n_rep: 30 seeds 42..71
+
+space      nA         DDQN        ±CI      Δrule      Δbest  focus≠0   ell2|sev
+coarse     18   2110487.69   59878.01  -33419.27  -44751.95     0.0%      41.0%
+fine      108   2104579.38   61175.74  -39327.58  -50660.26    87.1%      36.1%
+
+baselines: rule=2143906.96±59791.66 | best_fixed_12=2155239.64±57518.15 | fixed_0_(s,S)=1987242.83±67121.16
+Fine − Coarse profit delta: -5908.31 (-0.28% of Coarse)
+Note: fine focus=none recovers coarse (ell,e,g); local focus can raise only tight SKUs/FWs.
+
+log → /Users/oliverhuang/Desktop/2026_furp_零售/logs/ddqn_action_coarse_vs_fine_harsh_strong_30rep.log

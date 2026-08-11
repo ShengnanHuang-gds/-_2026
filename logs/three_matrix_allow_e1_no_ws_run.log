@@ -1,0 +1,400 @@
+
+===== TRAIN dqn/pdf/allow_e1/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=dqn forbid_expedite=False
+[eval  ep 005] greedy_profit=2451307.9 ± 10018.8 (n=3, days=365)
+[train ep 010/50] algo=dqn steps=365 return=247.196 raw_profit=2471955.7 loss=0.13630 eps=0.759 sample_e1=49.3% e1_legal_days=100.0% buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2510494.4 ± 11575.8 (n=3, days=365)
+[eval  ep 015] greedy_profit=2478127.6 ± 12825.6 (n=3, days=365)
+[train ep 020/50] algo=dqn steps=365 return=250.039 raw_profit=2500393.4 loss=0.36866 eps=0.518 sample_e1=42.5% e1_legal_days=98.9% buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2477828.2 ± 18419.5 (n=3, days=365)
+[eval  ep 025] greedy_profit=2520906.7 ± 15530.2 (n=3, days=365)
+[train ep 030/50] algo=dqn steps=365 return=248.367 raw_profit=2483670.5 loss=0.64318 eps=0.277 sample_e1=44.1% e1_legal_days=100.0% buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2470405.8 ± 13966.9 (n=3, days=365)
+[eval  ep 035] greedy_profit=2498283.0 ± 15657.5 (n=3, days=365)
+[train ep 040/50] algo=dqn steps=365 return=249.164 raw_profit=2491636.2 loss=1.38820 eps=0.036 sample_e1=45.2% e1_legal_days=100.0% buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2501095.3 ± 18615.1 (n=3, days=365)
+[eval  ep 045] greedy_profit=2510098.1 ± 15632.5 (n=3, days=365)
+[train ep 050/50] algo=dqn steps=365 return=245.381 raw_profit=2453814.8 loss=1.72525 eps=0.010 sample_e1=43.6% e1_legal_days=98.4% buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2504333.9 ± 4379.7 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/dqn_pdf_raw94_no_ws_allow_e1_best.pt (profit=2520906.7)
+[train done] algo=dqn forbid_e1=False mean_sample_e1=45.0% mean_e1_legal_days=99.7%
+
+===== TRAIN ddqn/pdf/allow_e1/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=ddqn forbid_expedite=False
+[eval  ep 005] greedy_profit=2493475.5 ± 9899.9 (n=3, days=365)
+[train ep 010/50] algo=ddqn steps=365 return=248.064 raw_profit=2480636.7 loss=0.10310 eps=0.759 sample_e1=47.9% e1_legal_days=100.0% buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2488670.7 ± 8863.7 (n=3, days=365)
+[eval  ep 015] greedy_profit=2497115.5 ± 5537.9 (n=3, days=365)
+[train ep 020/50] algo=ddqn steps=365 return=248.172 raw_profit=2481723.4 loss=0.28521 eps=0.518 sample_e1=44.4% e1_legal_days=98.9% buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2502371.5 ± 12929.9 (n=3, days=365)
+[eval  ep 025] greedy_profit=2524686.6 ± 14265.2 (n=3, days=365)
+[train ep 030/50] algo=ddqn steps=365 return=248.797 raw_profit=2487967.2 loss=0.45542 eps=0.277 sample_e1=43.0% e1_legal_days=100.0% buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2463042.9 ± 14705.1 (n=3, days=365)
+[eval  ep 035] greedy_profit=2431512.1 ± 13960.3 (n=3, days=365)
+[train ep 040/50] algo=ddqn steps=365 return=247.614 raw_profit=2476142.0 loss=1.02662 eps=0.036 sample_e1=43.8% e1_legal_days=100.0% buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2453022.0 ± 8921.6 (n=3, days=365)
+[eval  ep 045] greedy_profit=2502572.1 ± 7621.4 (n=3, days=365)
+[train ep 050/50] algo=ddqn steps=365 return=247.517 raw_profit=2475169.4 loss=1.28727 eps=0.010 sample_e1=37.0% e1_legal_days=98.4% buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2491421.7 ± 18697.2 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_pdf_raw94_no_ws_allow_e1_best.pt (profit=2524686.6)
+[train done] algo=ddqn forbid_e1=False mean_sample_e1=44.7% mean_e1_legal_days=99.7%
+
+===== TRAIN dueling/pdf/allow_e1/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=dueling forbid_expedite=False
+[eval  ep 005] greedy_profit=2512999.3 ± 16786.5 (n=3, days=365)
+[train ep 010/50] algo=dueling steps=365 return=247.410 raw_profit=2474097.0 loss=0.06653 eps=0.759 sample_e1=49.9% e1_legal_days=100.0% buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2512358.0 ± 10342.1 (n=3, days=365)
+[eval  ep 015] greedy_profit=2510897.7 ± 16066.5 (n=3, days=365)
+[train ep 020/50] algo=dueling steps=365 return=248.432 raw_profit=2484324.9 loss=0.17806 eps=0.518 sample_e1=44.9% e1_legal_days=98.9% buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2486890.0 ± 14621.4 (n=3, days=365)
+[eval  ep 025] greedy_profit=2491345.7 ± 14321.1 (n=3, days=365)
+[train ep 030/50] algo=dueling steps=365 return=248.020 raw_profit=2480200.3 loss=0.31192 eps=0.277 sample_e1=45.2% e1_legal_days=100.0% buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2507663.5 ± 12946.5 (n=3, days=365)
+[eval  ep 035] greedy_profit=2506932.2 ± 20723.0 (n=3, days=365)
+[train ep 040/50] algo=dueling steps=365 return=247.880 raw_profit=2478801.0 loss=0.82552 eps=0.036 sample_e1=46.8% e1_legal_days=100.0% buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2488905.1 ± 14030.5 (n=3, days=365)
+[eval  ep 045] greedy_profit=2474264.0 ± 20130.3 (n=3, days=365)
+[train ep 050/50] algo=dueling steps=365 return=246.816 raw_profit=2468160.8 loss=1.05038 eps=0.010 sample_e1=39.5% e1_legal_days=98.4% buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2479291.3 ± 11788.4 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/dueling_pdf_raw94_no_ws_allow_e1_best.pt (profit=2512999.3)
+[train done] algo=dueling forbid_e1=False mean_sample_e1=44.6% mean_e1_legal_days=99.7%
+
+===== TRAIN d3qn/pdf/allow_e1/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=d3qn forbid_expedite=False
+[eval  ep 005] greedy_profit=2520989.4 ± 19457.8 (n=3, days=365)
+[train ep 010/50] algo=d3qn steps=365 return=248.472 raw_profit=2484724.5 loss=0.05879 eps=0.759 sample_e1=46.8% e1_legal_days=100.0% buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2517167.9 ± 13719.3 (n=3, days=365)
+[eval  ep 015] greedy_profit=2504294.3 ± 14739.8 (n=3, days=365)
+[train ep 020/50] algo=d3qn steps=365 return=249.253 raw_profit=2492529.4 loss=0.16261 eps=0.518 sample_e1=39.5% e1_legal_days=98.9% buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2495238.9 ± 11071.2 (n=3, days=365)
+[eval  ep 025] greedy_profit=2496804.1 ± 17540.4 (n=3, days=365)
+[train ep 030/50] algo=d3qn steps=365 return=248.654 raw_profit=2486535.5 loss=0.25934 eps=0.277 sample_e1=44.9% e1_legal_days=100.0% buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2487026.5 ± 8832.4 (n=3, days=365)
+[eval  ep 035] greedy_profit=2486401.1 ± 19693.9 (n=3, days=365)
+[train ep 040/50] algo=d3qn steps=365 return=249.146 raw_profit=2491461.5 loss=0.69866 eps=0.036 sample_e1=40.8% e1_legal_days=100.0% buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2506741.9 ± 14362.3 (n=3, days=365)
+[eval  ep 045] greedy_profit=2504854.6 ± 14755.8 (n=3, days=365)
+[train ep 050/50] algo=d3qn steps=365 return=247.380 raw_profit=2473802.9 loss=0.93267 eps=0.010 sample_e1=40.8% e1_legal_days=98.4% buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2491245.9 ± 8738.2 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/d3qn_pdf_raw94_no_ws_allow_e1_best.pt (profit=2520989.4)
+[train done] algo=d3qn forbid_e1=False mean_sample_e1=43.4% mean_e1_legal_days=99.7%
+
+===== TRAIN ppo/pdf/allow_e1/no_ws =====
+[train PPO] encoder=raw dim=94 n_actions=18 forbid_e1=False
+[train PPO ep 001/50] raw_profit=2467489.1 loss=56.7859 sample_e1=51.2% e1_legal_days=98.4%
+[eval  PPO ep 005] greedy_profit=2535208.3 ± 11381.8
+[train PPO ep 010/50] raw_profit=2475716.1 loss=27.6519 sample_e1=38.9% e1_legal_days=100.0%
+[eval  PPO ep 010] greedy_profit=2369823.7 ± 12024.5
+[eval  PPO ep 015] greedy_profit=2369823.7 ± 12024.5
+[train PPO ep 020/50] raw_profit=2448424.4 loss=34.1184 sample_e1=54.2% e1_legal_days=98.9%
+[eval  PPO ep 020] greedy_profit=2576411.5 ± 11947.7
+[eval  PPO ep 025] greedy_profit=2575992.9 ± 12529.6
+[train PPO ep 030/50] raw_profit=2483847.6 loss=36.7971 sample_e1=38.1% e1_legal_days=100.0%
+[eval  PPO ep 030] greedy_profit=2557478.3 ± 14293.5
+[eval  PPO ep 035] greedy_profit=2369619.1 ± 11906.4
+[train PPO ep 040/50] raw_profit=2424888.7 loss=31.0453 sample_e1=58.4% e1_legal_days=100.0%
+[eval  PPO ep 040] greedy_profit=2557478.3 ± 14293.5
+[eval  PPO ep 045] greedy_profit=2369619.1 ± 11906.4
+[train PPO ep 050/50] raw_profit=2436998.1 loss=31.3492 sample_e1=50.7% e1_legal_days=98.4%
+[eval  PPO ep 050] greedy_profit=2412103.3 ± 12391.0
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ppo_pdf_raw94_no_ws_allow_e1_best.pt (profit=2576411.5)
+[train PPO done] mean_sample_e1=49.7% mean_e1_legal_days=99.7% forbid_e1=False
+
+===== TRAIN dqn/harsh_mild/allow_e1/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=dqn forbid_expedite=False
+[eval  ep 005] greedy_profit=2392693.3 ± 56916.8 (n=3, days=365)
+[train ep 010/50] algo=dqn steps=365 return=226.297 raw_profit=2262970.8 loss=0.12295 eps=0.759 sample_e1=43.8% e1_legal_days=92.1% buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2398085.8 ± 56446.0 (n=3, days=365)
+[eval  ep 015] greedy_profit=2443632.4 ± 55231.2 (n=3, days=365)
+[train ep 020/50] algo=dqn steps=365 return=248.331 raw_profit=2483313.9 loss=0.37175 eps=0.518 sample_e1=41.6% e1_legal_days=95.6% buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2415144.3 ± 60676.8 (n=3, days=365)
+[eval  ep 025] greedy_profit=2449568.3 ± 59476.9 (n=3, days=365)
+[train ep 030/50] algo=dqn steps=365 return=246.474 raw_profit=2464735.6 loss=0.60928 eps=0.277 sample_e1=42.2% e1_legal_days=97.5% buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2422117.2 ± 81893.2 (n=3, days=365)
+[eval  ep 035] greedy_profit=2414002.2 ± 69301.6 (n=3, days=365)
+[train ep 040/50] algo=dqn steps=365 return=240.070 raw_profit=2400696.7 loss=1.32031 eps=0.036 sample_e1=34.5% e1_legal_days=96.4% buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2432741.9 ± 70256.4 (n=3, days=365)
+[eval  ep 045] greedy_profit=2434243.0 ± 62848.9 (n=3, days=365)
+[train ep 050/50] algo=dqn steps=365 return=240.612 raw_profit=2406122.1 loss=1.69271 eps=0.010 sample_e1=37.0% e1_legal_days=94.5% buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2422841.4 ± 65968.2 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/dqn_harsh_mild_raw94_no_ws_allow_e1_best.pt (profit=2449568.3)
+[train done] algo=dqn forbid_e1=False mean_sample_e1=41.6% mean_e1_legal_days=95.0%
+
+===== TRAIN ddqn/harsh_mild/allow_e1/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=ddqn forbid_expedite=False
+[eval  ep 005] greedy_profit=2426148.8 ± 80628.3 (n=3, days=365)
+[train ep 010/50] algo=ddqn steps=365 return=225.272 raw_profit=2252716.3 loss=0.09900 eps=0.759 sample_e1=46.3% e1_legal_days=92.1% buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2431117.7 ± 52676.0 (n=3, days=365)
+[eval  ep 015] greedy_profit=2432847.2 ± 59893.1 (n=3, days=365)
+[train ep 020/50] algo=ddqn steps=365 return=248.001 raw_profit=2480006.0 loss=0.30563 eps=0.518 sample_e1=44.7% e1_legal_days=95.6% buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2431347.0 ± 70064.3 (n=3, days=365)
+[eval  ep 025] greedy_profit=2413685.7 ± 80585.7 (n=3, days=365)
+[train ep 030/50] algo=ddqn steps=365 return=247.876 raw_profit=2478760.7 loss=0.49444 eps=0.277 sample_e1=41.6% e1_legal_days=97.5% buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2397803.8 ± 58049.2 (n=3, days=365)
+[eval  ep 035] greedy_profit=2417543.3 ± 78562.7 (n=3, days=365)
+[train ep 040/50] algo=ddqn steps=365 return=238.308 raw_profit=2383081.6 loss=1.05925 eps=0.036 sample_e1=40.5% e1_legal_days=96.4% buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2422779.3 ± 59261.0 (n=3, days=365)
+[eval  ep 045] greedy_profit=2454004.8 ± 63755.4 (n=3, days=365)
+[train ep 050/50] algo=ddqn steps=365 return=238.546 raw_profit=2385458.9 loss=1.35555 eps=0.010 sample_e1=42.5% e1_legal_days=94.5% buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2365877.4 ± 57209.3 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_mild_raw94_no_ws_allow_e1_best.pt (profit=2454004.8)
+[train done] algo=ddqn forbid_e1=False mean_sample_e1=43.0% mean_e1_legal_days=95.0%
+
+===== TRAIN dueling/harsh_mild/allow_e1/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=dueling forbid_expedite=False
+[eval  ep 005] greedy_profit=2436803.1 ± 55587.0 (n=3, days=365)
+[train ep 010/50] algo=dueling steps=365 return=225.869 raw_profit=2258688.1 loss=0.08420 eps=0.759 sample_e1=43.3% e1_legal_days=92.1% buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2440765.5 ± 70954.4 (n=3, days=365)
+[eval  ep 015] greedy_profit=2425132.3 ± 66320.0 (n=3, days=365)
+[train ep 020/50] algo=dueling steps=365 return=249.373 raw_profit=2493725.1 loss=0.22143 eps=0.518 sample_e1=43.6% e1_legal_days=95.6% buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2421742.5 ± 62851.0 (n=3, days=365)
+[eval  ep 025] greedy_profit=2434515.9 ± 75689.0 (n=3, days=365)
+[train ep 030/50] algo=dueling steps=365 return=248.574 raw_profit=2485738.0 loss=0.41256 eps=0.277 sample_e1=43.3% e1_legal_days=97.5% buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2418475.0 ± 70128.3 (n=3, days=365)
+[eval  ep 035] greedy_profit=2414851.5 ± 79676.4 (n=3, days=365)
+[train ep 040/50] algo=dueling steps=365 return=242.000 raw_profit=2419999.1 loss=0.92250 eps=0.036 sample_e1=43.0% e1_legal_days=96.4% buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2432673.1 ± 60808.1 (n=3, days=365)
+[eval  ep 045] greedy_profit=2431755.6 ± 58616.1 (n=3, days=365)
+[train ep 050/50] algo=dueling steps=365 return=241.404 raw_profit=2414039.8 loss=1.18997 eps=0.010 sample_e1=40.3% e1_legal_days=94.5% buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2450317.2 ± 65540.3 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/dueling_harsh_mild_raw94_no_ws_allow_e1_best.pt (profit=2450317.2)
+[train done] algo=dueling forbid_e1=False mean_sample_e1=43.5% mean_e1_legal_days=95.0%
+
+===== TRAIN d3qn/harsh_mild/allow_e1/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=d3qn forbid_expedite=False
+[eval  ep 005] greedy_profit=2425626.2 ± 67686.2 (n=3, days=365)
+[train ep 010/50] algo=d3qn steps=365 return=227.267 raw_profit=2272669.7 loss=0.07840 eps=0.759 sample_e1=42.7% e1_legal_days=92.1% buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2427962.9 ± 59209.8 (n=3, days=365)
+[eval  ep 015] greedy_profit=2398086.6 ± 70489.8 (n=3, days=365)
+[train ep 020/50] algo=d3qn steps=365 return=249.511 raw_profit=2495112.7 loss=0.19511 eps=0.518 sample_e1=41.9% e1_legal_days=95.6% buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2448488.6 ± 68965.6 (n=3, days=365)
+[eval  ep 025] greedy_profit=2453118.0 ± 79026.4 (n=3, days=365)
+[train ep 030/50] algo=d3qn steps=365 return=246.474 raw_profit=2464742.4 loss=0.32449 eps=0.277 sample_e1=44.7% e1_legal_days=97.5% buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2426450.4 ± 59424.4 (n=3, days=365)
+[eval  ep 035] greedy_profit=2434471.3 ± 78768.6 (n=3, days=365)
+[train ep 040/50] algo=d3qn steps=365 return=237.510 raw_profit=2375101.3 loss=0.65961 eps=0.036 sample_e1=39.2% e1_legal_days=96.4% buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2440209.0 ± 63011.3 (n=3, days=365)
+[eval  ep 045] greedy_profit=2446087.7 ± 82292.1 (n=3, days=365)
+[train ep 050/50] algo=d3qn steps=365 return=240.141 raw_profit=2401408.1 loss=0.96607 eps=0.010 sample_e1=36.4% e1_legal_days=94.5% buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2408641.2 ± 46409.0 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/d3qn_harsh_mild_raw94_no_ws_allow_e1_best.pt (profit=2453118.0)
+[train done] algo=d3qn forbid_e1=False mean_sample_e1=41.6% mean_e1_legal_days=95.0%
+
+===== TRAIN ppo/harsh_mild/allow_e1/no_ws =====
+[train PPO] encoder=raw dim=94 n_actions=18 forbid_e1=False
+[train PPO ep 001/50] raw_profit=2246562.0 loss=47.0692 sample_e1=46.3% e1_legal_days=90.7%
+[eval  PPO ep 005] greedy_profit=2463904.2 ± 71453.5
+[train PPO ep 010/50] raw_profit=2266059.4 loss=28.1605 sample_e1=38.6% e1_legal_days=92.1%
+[eval  PPO ep 010] greedy_profit=2473906.1 ± 88471.4
+[eval  PPO ep 015] greedy_profit=2468296.6 ± 69090.8
+[train PPO ep 020/50] raw_profit=2485044.9 loss=32.6431 sample_e1=43.3% e1_legal_days=95.6%
+[eval  PPO ep 020] greedy_profit=2337992.7 ± 57757.2
+[eval  PPO ep 025] greedy_profit=2471014.5 ± 64637.3
+[train PPO ep 030/50] raw_profit=2489294.3 loss=37.0744 sample_e1=33.7% e1_legal_days=97.5%
+[eval  PPO ep 030] greedy_profit=2468296.6 ± 69090.8
+[eval  PPO ep 035] greedy_profit=2482164.8 ± 77592.7
+[train PPO ep 040/50] raw_profit=2366539.0 loss=32.9631 sample_e1=30.1% e1_legal_days=96.4%
+[eval  PPO ep 040] greedy_profit=2462448.4 ± 72650.8
+[eval  PPO ep 045] greedy_profit=2462486.2 ± 72589.4
+[train PPO ep 050/50] raw_profit=2368537.6 loss=27.0975 sample_e1=38.6% e1_legal_days=94.5%
+[eval  PPO ep 050] greedy_profit=2460713.5 ± 71203.5
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ppo_harsh_mild_raw94_no_ws_allow_e1_best.pt (profit=2482164.8)
+[train PPO done] mean_sample_e1=39.8% mean_e1_legal_days=95.0% forbid_e1=False
+
+===== TRAIN dqn/harsh_strong/allow_e1/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=dqn forbid_expedite=False
+[eval  ep 005] greedy_profit=2141829.3 ± 115580.8 (n=3, days=365)
+[train ep 010/50] algo=dqn steps=365 return=201.176 raw_profit=2011763.0 loss=0.16673 eps=0.759 sample_e1=43.0% e1_legal_days=82.7% buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2142786.5 ± 90339.9 (n=3, days=365)
+[eval  ep 015] greedy_profit=2176592.1 ± 116989.0 (n=3, days=365)
+[train ep 020/50] algo=dqn steps=365 return=243.515 raw_profit=2435150.9 loss=0.53433 eps=0.518 sample_e1=41.1% e1_legal_days=87.4% buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2167014.5 ± 137824.1 (n=3, days=365)
+[eval  ep 025] greedy_profit=2151374.1 ± 96759.6 (n=3, days=365)
+[train ep 030/50] algo=dqn steps=365 return=232.688 raw_profit=2326884.2 loss=0.91211 eps=0.277 sample_e1=41.6% e1_legal_days=89.0% buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2136271.4 ± 107565.0 (n=3, days=365)
+[eval  ep 035] greedy_profit=2153906.7 ± 126037.6 (n=3, days=365)
+[train ep 040/50] algo=dqn steps=365 return=204.856 raw_profit=2048560.6 loss=1.54825 eps=0.036 sample_e1=43.6% e1_legal_days=89.3% buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2143074.6 ± 96290.9 (n=3, days=365)
+[eval  ep 045] greedy_profit=2153700.1 ± 121747.2 (n=3, days=365)
+[train ep 050/50] algo=dqn steps=365 return=198.890 raw_profit=1988902.4 loss=1.85609 eps=0.010 sample_e1=39.7% e1_legal_days=78.1% buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2149472.8 ± 120506.0 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/dqn_harsh_strong_raw94_no_ws_allow_e1_best.pt (profit=2176592.1)
+[train done] algo=dqn forbid_e1=False mean_sample_e1=40.2% mean_e1_legal_days=83.4%
+
+===== TRAIN ddqn/harsh_strong/allow_e1/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=ddqn forbid_expedite=False
+[eval  ep 005] greedy_profit=2142813.4 ± 105666.1 (n=3, days=365)
+[train ep 010/50] algo=ddqn steps=365 return=198.314 raw_profit=1983142.5 loss=0.12712 eps=0.759 sample_e1=42.7% e1_legal_days=82.7% buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2133386.7 ± 75571.7 (n=3, days=365)
+[eval  ep 015] greedy_profit=2169509.9 ± 105392.0 (n=3, days=365)
+[train ep 020/50] algo=ddqn steps=365 return=244.274 raw_profit=2442740.0 loss=0.49561 eps=0.518 sample_e1=39.7% e1_legal_days=87.4% buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2175839.9 ± 135977.1 (n=3, days=365)
+[eval  ep 025] greedy_profit=2141286.6 ± 88950.2 (n=3, days=365)
+[train ep 030/50] algo=ddqn steps=365 return=233.390 raw_profit=2333897.1 loss=0.76282 eps=0.277 sample_e1=46.0% e1_legal_days=89.0% buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2135734.7 ± 119314.1 (n=3, days=365)
+[eval  ep 035] greedy_profit=2138499.9 ± 98206.4 (n=3, days=365)
+[train ep 040/50] algo=ddqn steps=365 return=209.529 raw_profit=2095290.3 loss=1.33045 eps=0.036 sample_e1=46.3% e1_legal_days=89.3% buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2153573.7 ± 95887.2 (n=3, days=365)
+[eval  ep 045] greedy_profit=2151903.4 ± 128123.9 (n=3, days=365)
+[train ep 050/50] algo=ddqn steps=365 return=193.305 raw_profit=1933050.1 loss=1.47013 eps=0.010 sample_e1=35.6% e1_legal_days=78.1% buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2158458.6 ± 90508.7 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_raw94_no_ws_allow_e1_best.pt (profit=2175839.9)
+[train done] algo=ddqn forbid_e1=False mean_sample_e1=41.1% mean_e1_legal_days=83.4%
+
+===== TRAIN dueling/harsh_strong/allow_e1/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=dueling forbid_expedite=False
+[eval  ep 005] greedy_profit=2117176.0 ± 117632.4 (n=3, days=365)
+[train ep 010/50] algo=dueling steps=365 return=201.322 raw_profit=2013218.9 loss=0.10321 eps=0.759 sample_e1=40.5% e1_legal_days=82.7% buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2163317.1 ± 96327.5 (n=3, days=365)
+[eval  ep 015] greedy_profit=2155614.3 ± 139425.8 (n=3, days=365)
+[train ep 020/50] algo=dueling steps=365 return=244.779 raw_profit=2447791.2 loss=0.38042 eps=0.518 sample_e1=40.8% e1_legal_days=87.4% buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2140719.1 ± 126220.1 (n=3, days=365)
+[eval  ep 025] greedy_profit=2158633.9 ± 154164.9 (n=3, days=365)
+[train ep 030/50] algo=dueling steps=365 return=230.473 raw_profit=2304730.6 loss=0.70095 eps=0.277 sample_e1=51.2% e1_legal_days=89.0% buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2154179.9 ± 111116.0 (n=3, days=365)
+[eval  ep 035] greedy_profit=2137157.3 ± 94080.0 (n=3, days=365)
+[train ep 040/50] algo=dueling steps=365 return=202.972 raw_profit=2029721.3 loss=1.26903 eps=0.036 sample_e1=46.0% e1_legal_days=89.3% buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2171843.2 ± 120319.2 (n=3, days=365)
+[eval  ep 045] greedy_profit=2148459.2 ± 101227.9 (n=3, days=365)
+[train ep 050/50] algo=dueling steps=365 return=191.725 raw_profit=1917246.8 loss=1.57805 eps=0.010 sample_e1=41.4% e1_legal_days=78.1% buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2151355.2 ± 124545.3 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/dueling_harsh_strong_raw94_no_ws_allow_e1_best.pt (profit=2171843.2)
+[train done] algo=dueling forbid_e1=False mean_sample_e1=41.4% mean_e1_legal_days=83.4%
+
+===== TRAIN d3qn/harsh_strong/allow_e1/no_ws =====
+[train] state_encoder=raw dim=94 action_space=coarse n_actions=18 algo=d3qn forbid_expedite=False
+[eval  ep 005] greedy_profit=2093863.0 ± 127734.7 (n=3, days=365)
+[train ep 010/50] algo=d3qn steps=365 return=200.530 raw_profit=2005298.8 loss=0.09932 eps=0.759 sample_e1=40.3% e1_legal_days=82.7% buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2169995.3 ± 110971.3 (n=3, days=365)
+[eval  ep 015] greedy_profit=2160397.4 ± 116645.7 (n=3, days=365)
+[train ep 020/50] algo=d3qn steps=365 return=244.289 raw_profit=2442893.4 loss=0.31304 eps=0.518 sample_e1=44.7% e1_legal_days=87.4% buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2194004.8 ± 94564.2 (n=3, days=365)
+[eval  ep 025] greedy_profit=2178220.2 ± 86317.3 (n=3, days=365)
+[train ep 030/50] algo=d3qn steps=365 return=235.204 raw_profit=2352043.2 loss=0.54541 eps=0.277 sample_e1=42.2% e1_legal_days=89.0% buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2160824.2 ± 127070.6 (n=3, days=365)
+[eval  ep 035] greedy_profit=2156518.7 ± 122347.6 (n=3, days=365)
+[train ep 040/50] algo=d3qn steps=365 return=203.075 raw_profit=2030748.4 loss=0.94713 eps=0.036 sample_e1=49.3% e1_legal_days=89.3% buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2158027.6 ± 120737.7 (n=3, days=365)
+[eval  ep 045] greedy_profit=2139518.7 ± 106176.5 (n=3, days=365)
+[train ep 050/50] algo=d3qn steps=365 return=188.809 raw_profit=1888091.9 loss=1.11152 eps=0.010 sample_e1=38.9% e1_legal_days=78.1% buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2157135.2 ± 90802.2 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/d3qn_harsh_strong_raw94_no_ws_allow_e1_best.pt (profit=2194004.8)
+[train done] algo=d3qn forbid_e1=False mean_sample_e1=40.4% mean_e1_legal_days=83.4%
+
+===== TRAIN ppo/harsh_strong/allow_e1/no_ws =====
+[train PPO] encoder=raw dim=94 n_actions=18 forbid_e1=False
+[train PPO ep 001/50] raw_profit=2066089.2 loss=40.3645 sample_e1=42.7% e1_legal_days=83.8%
+[eval  PPO ep 005] greedy_profit=2105581.8 ± 112411.7
+[train PPO ep 010/50] raw_profit=2052201.1 loss=26.0061 sample_e1=43.6% e1_legal_days=82.7%
+[eval  PPO ep 010] greedy_profit=2089002.4 ± 100017.2
+[eval  PPO ep 015] greedy_profit=2153098.1 ± 111465.3
+[train PPO ep 020/50] raw_profit=2406164.6 loss=27.5876 sample_e1=45.2% e1_legal_days=87.4%
+[eval  PPO ep 020] greedy_profit=2078114.7 ± 104595.3
+[eval  PPO ep 025] greedy_profit=2101337.1 ± 134148.0
+[train PPO ep 030/50] raw_profit=2355183.6 loss=27.7396 sample_e1=63.0% e1_legal_days=89.0%
+[eval  PPO ep 030] greedy_profit=2125873.5 ± 105150.0
+[eval  PPO ep 035] greedy_profit=2127571.8 ± 102191.2
+[train PPO ep 040/50] raw_profit=2061746.3 loss=22.8188 sample_e1=60.8% e1_legal_days=89.3%
+[eval  PPO ep 040] greedy_profit=2151086.4 ± 107335.3
+[eval  PPO ep 045] greedy_profit=2127571.8 ± 102191.2
+[train PPO ep 050/50] raw_profit=2006795.6 loss=22.1054 sample_e1=53.2% e1_legal_days=78.1%
+[eval  PPO ep 050] greedy_profit=2103555.0 ± 112715.3
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ppo_harsh_strong_raw94_no_ws_allow_e1_best.pt (profit=2153098.1)
+[train PPO done] mean_sample_e1=50.5% mean_e1_legal_days=83.4% forbid_e1=False
+
+===== baselines pdf =====
+  fixed_0_(s,S): 2573988.59 ± 6246.92
+  best_fixed_1: 2574056.05 ± 6180.39
+  rule_based: 2574862.66 ± 5639.48
+
+===== EVAL dqn/pdf =====
+  2520611.93 ± 4178.75
+
+===== EVAL ddqn/pdf =====
+  2524140.03 ± 4254.12
+
+===== EVAL dueling/pdf =====
+  2509697.45 ± 5030.00
+
+===== EVAL d3qn/pdf =====
+  2523358.89 ± 4638.84
+
+===== EVAL ppo/pdf =====
+  2574885.88 ± 5365.29
+
+===== baselines harsh_mild =====
+  fixed_0_(s,S): 2453409.16 ± 30976.47
+  best_fixed_13: 2466956.16 ± 25417.14
+  rule_based: 2486155.36 ± 25917.67
+
+===== EVAL dqn/harsh_mild =====
+  2441092.46 ± 26041.55
+
+===== EVAL ddqn/harsh_mild =====
+  2437807.29 ± 25102.88
+
+===== EVAL dueling/harsh_mild =====
+  2432852.90 ± 23164.08
+
+===== EVAL d3qn/harsh_mild =====
+  2440802.62 ± 25386.69
+
+===== EVAL ppo/harsh_mild =====
+  2472945.57 ± 28427.46
+
+===== baselines harsh_strong =====
+  fixed_0_(s,S): 1987242.83 ± 67121.16
+  best_fixed_12: 2155239.64 ± 57518.15
+  rule_based: 2143906.96 ± 59791.66
+
+===== EVAL dqn/harsh_strong =====
+  2122684.17 ± 59736.57
+
+===== EVAL ddqn/harsh_strong =====
+  2097040.74 ± 56106.70
+
+===== EVAL dueling/harsh_strong =====
+  2130325.08 ± 55200.68
+
+===== EVAL d3qn/harsh_strong =====
+  2127642.34 ± 57401.07
+
+===== EVAL ppo/harsh_strong =====
+  2117285.98 ± 58747.90
+
+Three-matrix allow_e1, NO warm-start (30-rep)
+Run at: 2026-07-31T14:49:58
+forbid_expedite=False rule_warmstart=0 episodes=50
+
+=== pdf ===
+  fixed_0=2573988.59±6246.92 | best=2574056.05±6180.39 | rule=2574862.66±5639.48
+  dqn      2520611.93±4178.75 Δrule=-54251 Δbest=-53444
+  ddqn     2524140.03±4254.12 Δrule=-50723 Δbest=-49916
+  dueling  2509697.45±5030.00 Δrule=-65165 Δbest=-64359
+  d3qn     2523358.89±4638.84 Δrule=-51504 Δbest=-50697
+  ppo      2574885.88±5365.29 Δrule=+23 Δbest=+830
+
+=== harsh_mild ===
+  fixed_0=2453409.16±30976.47 | best=2466956.16±25417.14 | rule=2486155.36±25917.67
+  dqn      2441092.46±26041.55 Δrule=-45063 Δbest=-25864
+  ddqn     2437807.29±25102.88 Δrule=-48348 Δbest=-29149
+  dueling  2432852.90±23164.08 Δrule=-53302 Δbest=-34103
+  d3qn     2440802.62±25386.69 Δrule=-45353 Δbest=-26154
+  ppo      2472945.57±28427.46 Δrule=-13210 Δbest=+5989
+
+=== harsh_strong ===
+  fixed_0=1987242.83±67121.16 | best=2155239.64±57518.15 | rule=2143906.96±59791.66
+  dqn      2122684.17±59736.57 Δrule=-21223 Δbest=-32555
+  ddqn     2097040.74±56106.70 Δrule=-46866 Δbest=-58199
+  dueling  2130325.08±55200.68 Δrule=-13582 Δbest=-24915
+  d3qn     2127642.34±57401.07 Δrule=-16265 Δbest=-27597
+  ppo      2117285.98±58747.90 Δrule=-26621 Δbest=-37954
+
+Table DDQN (no-ws, allow_e1) vs baselines:
+  pdf: DDQN=2.524M fixed_0=2.574M best=2.574M rule=2.575M
+  harsh_mild: DDQN=2.438M fixed_0=2.453M best=2.467M rule=2.486M
+  harsh_strong: DDQN=2.097M fixed_0=1.987M best=2.155M rule=2.144M
+
+csv → /Users/oliverhuang/Desktop/2026_furp_零售/logs/three_matrix_allow_e1_ws_30rep.csv
+log → /Users/oliverhuang/Desktop/2026_furp_零售/logs/three_matrix_allow_e1_ws_30rep.log
+fig → /Users/oliverhuang/Desktop/2026_furp_零售/figures/fig_three_matrix_all_algos_allow_e1.pdf

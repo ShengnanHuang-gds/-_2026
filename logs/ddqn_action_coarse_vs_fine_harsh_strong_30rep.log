@@ -1,0 +1,15 @@
+Coarse vs Fine (Plan A) action-space comparison
+Run at: 2026-07-29T13:12:58
+profile: harsh_strong
+encoder: risk
+forbid_expedite: True
+episodes: 50
+n_rep: 30 seeds 42..71
+
+space      nA         DDQN        ±CI      Δrule      Δbest  focus≠0   ell2|sev
+coarse     18   2110487.69   59878.01  -33419.27  -44751.95     0.0%      41.0%
+fine      108   2104579.38   61175.74  -39327.58  -50660.26    87.1%      36.1%
+
+baselines: rule=2143906.96±59791.66 | best_fixed_12=2155239.64±57518.15 | fixed_0_(s,S)=1987242.83±67121.16
+Fine − Coarse profit delta: -5908.31 (-0.28% of Coarse)
+Note: fine focus=none recovers coarse (ell,e,g); local focus can raise only tight SKUs/FWs.

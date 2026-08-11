@@ -1,0 +1,56 @@
+Policy baselines comparison (disruption_mode=both)
+Run at: 2026-07-27T13:48:04
+
+Policies: fixed_0_(s,S) | best_fixed_* | rule_based
+Profiles: pdf | harsh_mild | harsh_strong
+
+## pdf
+  PDF default (mild; ~97% time in A0/U0)
+Metric                      fixed_0_(s,S)               best_fixed_1                rule_based                  
+----------------------------------------------------------------------------------------------------------------
+total_profit                2573988.5950 ± 6246.9182    2574056.0542 ± 6180.3854    2574862.6600 ± 5639.4819    
+fill_rate                   0.9976 ± 0.0015             0.9977 ± 0.0015             0.9984 ± 0.0012             
+lost_sales_rate             0.0024 ± 0.0015             0.0023 ± 0.0015             0.0016 ± 0.0012             
+average_forward_inventory   19.9884 ± 0.0547            19.9865 ± 0.0539            20.0414 ± 0.0373            
+average_central_inventory   255.1270 ± 2.0508           255.2429 ± 1.9724           258.6881 ± 1.8637           
+total_expedite_cost         0.0000 ± 0.0000             0.0000 ± 0.0000             0.0000 ± 0.0000             
+
+  Delta vs fixed_0 (mean only):
+    best_fixed_1: profit +67.5, fill +0.0000, lost -0.0000
+    rule_based: profit +874.1, fill +0.0008, lost -0.0008
+
+## harsh_mild
+  Stress: leave A0/U0 more often; ~20% time disrupted
+Metric                      fixed_0_(s,S)               best_fixed_13               rule_based                  
+----------------------------------------------------------------------------------------------------------------
+total_profit                2453409.1592 ± 30976.4730   2466956.1600 ± 25417.1412   2486155.3608 ± 25917.6696   
+fill_rate                   0.9604 ± 0.0082             0.9754 ± 0.0071             0.9719 ± 0.0070             
+lost_sales_rate             0.0396 ± 0.0082             0.0246 ± 0.0071             0.0281 ± 0.0070             
+average_forward_inventory   18.8062 ± 0.2172            20.0663 ± 0.1944            19.3933 ± 0.1794            
+average_central_inventory   213.9753 ± 4.9922           298.8346 ± 5.9418           229.7105 ± 3.6664           
+total_expedite_cost         0.0000 ± 0.0000             0.0000 ± 0.0000             0.0000 ± 0.0000             
+
+  Delta vs fixed_0 (mean only):
+    best_fixed_13: profit +13547.0, fill +0.0149, lost -0.0149
+    rule_based: profit +32746.2, fill +0.0114, lost -0.0114
+
+## harsh_strong
+  Aggressive stress: ~50%+ time disrupted
+Metric                      fixed_0_(s,S)               best_fixed_12               rule_based                  
+----------------------------------------------------------------------------------------------------------------
+total_profit                1987242.8325 ± 67121.1628   2155239.6383 ± 57518.1479   2143906.9617 ± 59791.6599   
+fill_rate                   0.8315 ± 0.0168             0.8821 ± 0.0153             0.8755 ± 0.0155             
+lost_sales_rate             0.1685 ± 0.0168             0.1179 ± 0.0153             0.1245 ± 0.0155             
+average_forward_inventory   15.0960 ± 0.4089            17.2723 ± 0.3895            16.8431 ± 0.3831            
+average_central_inventory   128.1401 ± 6.0406           190.3181 ± 8.3358           159.0001 ± 6.1037           
+total_expedite_cost         0.0000 ± 0.0000             0.0000 ± 0.0000             0.0000 ± 0.0000             
+
+  Delta vs fixed_0 (mean only):
+    best_fixed_12: profit +167996.8, fill +0.0506, lost -0.0506
+    rule_based: profit +156664.1, fill +0.0440, lost -0.0440
+
+Notes:
+- All policies evaluated via RetailMDPEnv with common seeds.
+- Warmup uses baseline (no MDP action); policy starts at eval day 1.
+- best_fixed is profile-specific (pdf:1, harsh_mild:13, harsh_strong:12).
+- rule_based does not always-on expedite (cost dominated grids).

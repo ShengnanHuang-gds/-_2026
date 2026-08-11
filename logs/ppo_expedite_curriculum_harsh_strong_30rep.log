@@ -1,0 +1,19 @@
+PPO expedite curriculum (harsh_strong, raw94, coarse)
+Run at: 2026-07-30T15:06:02
+A: forbid_e1 + ws (50 ep)
+B: load A → allow_e1 fine-tune (30 ep, lr=1e-4, ent=0.02)
+C: scratch allow_e1 + ws (50 ep)
+n_rep=30
+
+train_sample_e1 = stochastic rollout e=1 rate during training
+train_e1_legal = fraction of days where mask allows at least one e=1
+greedy_e1 = e=1 rate under select_greedy eval
+
+arm            forbid       profit        ±CI  greedy_e1   train_e1   e1_legal      Δrule      Δbest
+A_forbid            Y   2145550.95   60977.08       0.0%       0.0%       0.0%   +1643.99   -9688.69
+B_curriculum        N   2145421.41   59540.31       0.0%       0.0%      83.2%   +1514.45   -9818.23
+C_scratch           N   2148642.01   58437.81       0.0%       0.0%      83.4%   +4735.05   -6597.63
+
+baselines: rule=2143906.96±59791.66 | best_fixed_12=2155239.64±57518.15
+curriculum lift B−A: -129.54 (greedy_e1 0.0%→0.0%; train_e1 0.0%→0.0%)
+curriculum vs scratch B−C: -3220.60 (greedy_e1 0.0% vs 0.0%; train_e1 0.0% vs 0.0%)

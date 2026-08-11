@@ -1,0 +1,34 @@
+Scenario: policy baselines / matrix=harsh_mild
+Description: Stress: leave A0/U0 more often; ~20% time disrupted
+Run at: 2026-07-27T13:47:56
+disruption_mode: both
+disruption_matrix_profile: harsh_mild
+Replications: 30 (30 warmup + 365 eval)
+random_seed_base: 42
+demand_intensity_scale: 1.2
+
+Rule (v1): A0/U0→(0,0,1); mild A1/U1→(1,0,1); severe A>=2 or U>=2→(2,0,1); U3 keeps e=0
+
+=== fixed_0_(s,S) ===
+  total_profit: 2453409.1592 ± 30976.4730
+  fill_rate: 0.9604 ± 0.0082
+  lost_sales_rate: 0.0396 ± 0.0082
+  average_forward_inventory: 18.8062 ± 0.2172
+  average_central_inventory: 213.9753 ± 4.9922
+  total_expedite_cost: 0.0000 ± 0.0000
+
+=== best_fixed_13 ===
+  total_profit: 2466956.1600 ± 25417.1412
+  fill_rate: 0.9754 ± 0.0071
+  lost_sales_rate: 0.0246 ± 0.0071
+  average_forward_inventory: 20.0663 ± 0.1944
+  average_central_inventory: 298.8346 ± 5.9418
+  total_expedite_cost: 0.0000 ± 0.0000
+
+=== rule_based ===
+  total_profit: 2486155.3608 ± 25917.6696
+  fill_rate: 0.9719 ± 0.0070
+  lost_sales_rate: 0.0281 ± 0.0070
+  average_forward_inventory: 19.3933 ± 0.1794
+  average_central_inventory: 229.7105 ± 3.6664
+  total_expedite_cost: 0.0000 ± 0.0000

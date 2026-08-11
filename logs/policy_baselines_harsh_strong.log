@@ -1,0 +1,34 @@
+Scenario: policy baselines / matrix=harsh_strong
+Description: Aggressive stress: ~50%+ time disrupted
+Run at: 2026-07-27T13:48:04
+disruption_mode: both
+disruption_matrix_profile: harsh_strong
+Replications: 30 (30 warmup + 365 eval)
+random_seed_base: 42
+demand_intensity_scale: 1.2
+
+Rule (v1): A0/U0→(0,0,1); mild A1/U1→(1,0,1); severe A>=2 or U>=2→(2,0,1); U3 keeps e=0
+
+=== fixed_0_(s,S) ===
+  total_profit: 1987242.8325 ± 67121.1628
+  fill_rate: 0.8315 ± 0.0168
+  lost_sales_rate: 0.1685 ± 0.0168
+  average_forward_inventory: 15.0960 ± 0.4089
+  average_central_inventory: 128.1401 ± 6.0406
+  total_expedite_cost: 0.0000 ± 0.0000
+
+=== best_fixed_12 ===
+  total_profit: 2155239.6383 ± 57518.1479
+  fill_rate: 0.8821 ± 0.0153
+  lost_sales_rate: 0.1179 ± 0.0153
+  average_forward_inventory: 17.2723 ± 0.3895
+  average_central_inventory: 190.3181 ± 8.3358
+  total_expedite_cost: 0.0000 ± 0.0000
+
+=== rule_based ===
+  total_profit: 2143906.9617 ± 59791.6599
+  fill_rate: 0.8755 ± 0.0155
+  lost_sales_rate: 0.1245 ± 0.0155
+  average_forward_inventory: 16.8431 ± 0.3831
+  average_central_inventory: 159.0001 ± 6.1037
+  total_expedite_cost: 0.0000 ± 0.0000

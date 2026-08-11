@@ -1,0 +1,20 @@
+Scenario: matrix stress / profile=harsh_mild
+Description: Stress: leave A0/U0 more often; ~20% time disrupted
+Run at: 2026-07-27T13:12:18
+disruption_mode: both
+disruption_matrix_profile: harsh_mild
+Replications: 30 (30 warmup + 365 eval)
+random_seed_base: 42
+demand_intensity_scale: 1.2
+
+=== Summary (mean ± 95% CI) ===
+
+total_profit: 2453409.1592 ± 30976.4730
+fill_rate: 0.9604 ± 0.0082
+lost_sales_rate: 0.0396 ± 0.0082
+average_forward_inventory: 18.8062 ± 0.2172
+average_central_inventory: 213.9753 ± 4.9922
+
+cw_shortage_freq_mean: 0.1374
+cw_zero_inv_freq_mean: 0.1421
+fw_stockout_freq_mean: 0.0438

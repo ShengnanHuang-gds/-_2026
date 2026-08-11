@@ -1,0 +1,109 @@
+DDQN (allow e=1) vs baselines across matrices
+Run at: 2026-07-29T12:07:57
+profiles: ['pdf', 'harsh_mild', 'harsh_strong']
+episodes: 50  eps_decay_steps: 15000  eps_end: 0.01  lr: 0.0003
+forbid_expedite: False (e=1 open)
+demand_intensity_scale: 1.2
+eval_reps: 10  seed: 42
+horizon: 30+365
+
+Aliases: normal=pdf, mild=harsh_mild, harsh=harsh_strong
+
+=== normal / pdf ===
+Description: PDF default (mild; ~97% time in A0/U0)
+train_sec: 14.1
+train_best_eval (internal): 2524686.6249999995
+final_eps: 0.010000000000000009
+
+Profit comparison (mean ± half-width CI):
+  ddqn_greedy: 2524106.8975 ± 9292.2815
+  fixed_0_(s,S): 2572108.3475 ± 16482.9982
+  best_fixed_1: 2572018.6325 ± 16296.8036
+  rule_based: 2572831.8125 ± 15162.0043
+
+  Δ vs fixed_0: -48001.5 (-1.87%)
+  Δ vs best_fixed_1: -47911.7 (-1.86%)
+  Δ vs rule_based: -48724.9 (-1.89%)
+
+DDQN greedy action distribution:
+  e=1 ratio: 22.0%  (804/3650)
+  top actions:
+    id= 6 (1, 0, 0)  20.5%
+    id= 2 (0, 0, 2)  17.5%
+    id=12 (2, 0, 0)  11.7%
+    id= 1 (0, 0, 1)  8.1%
+    id=13 (2, 0, 1)  7.7%
+    id=14 (2, 0, 2)  4.4%
+    id= 0 (0, 0, 0)  4.2%
+    id= 4 (0, 1, 1)  3.8%
+
+  fill_rate ddqn: 0.9985 ± 0.0018
+  expedite_cost ddqn: 24806.8250 ± 2361.8329
+
+=== mild / harsh_mild ===
+Description: Stress: leave A0/U0 more often; ~20% time disrupted
+train_sec: 15.7
+train_best_eval (internal): 2454004.783333333
+final_eps: 0.010000000000000009
+
+Profit comparison (mean ± half-width CI):
+  ddqn_greedy: 2419204.6450 ± 47990.6351
+  fixed_0_(s,S): 2427683.9125 ± 66879.1466
+  best_fixed_13: 2443852.2450 ± 50651.9326
+  rule_based: 2459486.6675 ± 53897.4390
+
+  Δ vs fixed_0: -8479.3 (-0.35%)
+  Δ vs best_fixed_13: -24647.6 (-1.01%)
+  Δ vs rule_based: -40282.0 (-1.64%)
+
+DDQN greedy action distribution:
+  e=1 ratio: 22.6%  (826/3650)
+  top actions:
+    id= 7 (1, 0, 1)  19.8%
+    id= 1 (0, 0, 1)  15.1%
+    id=12 (2, 0, 0)  12.3%
+    id=13 (2, 0, 1)  8.5%
+    id= 8 (1, 0, 2)  7.3%
+    id= 2 (0, 0, 2)  6.4%
+    id=16 (2, 1, 1)  5.1%
+    id=17 (2, 1, 2)  4.5%
+
+  fill_rate ddqn: 0.9674 ± 0.0142
+  expedite_cost ddqn: 32886.4000 ± 3259.8838
+
+=== harsh / harsh_strong ===
+Description: Aggressive stress: ~50%+ time disrupted
+train_sec: 20.2
+train_best_eval (internal): 2175839.9499999997
+final_eps: 0.010000000000000009
+
+Profit comparison (mean ± half-width CI):
+  ddqn_greedy: 2077279.3525 ± 97117.9250
+  fixed_0_(s,S): 1960056.8575 ± 118991.6774
+  best_fixed_12: 2128883.4275 ± 94352.1910
+  rule_based: 2125553.1800 ± 97338.9656
+
+  Δ vs fixed_0: +117222.5 (+5.98%)
+  Δ vs best_fixed_12: -51604.1 (-2.42%)
+  Δ vs rule_based: -48273.8 (-2.27%)
+
+DDQN greedy action distribution:
+  e=1 ratio: 36.8%  (1342/3650)
+  top actions:
+    id= 2 (0, 0, 2)  19.3%
+    id=17 (2, 1, 2)  11.4%
+    id=12 (2, 0, 0)  9.7%
+    id=13 (2, 0, 1)  8.7%
+    id=14 (2, 0, 2)  8.4%
+    id=15 (2, 1, 0)  6.6%
+    id= 4 (0, 1, 1)  6.2%
+    id= 6 (1, 0, 0)  5.6%
+
+  fill_rate ddqn: 0.8746 ± 0.0273
+  expedite_cost ddqn: 48399.9000 ± 5167.1917
+
+=== summary table (total_profit mean) ===
+profile                ddqn      fixed_0   best_fixed         rule      e1%
+pdf               2524106.9    2572108.3    2572018.6    2572831.8    22.0%
+harsh_mild        2419204.6    2427683.9    2443852.2    2459486.7    22.6%
+harsh_strong      2077279.4    1960056.9    2128883.4    2125553.2    36.8%

@@ -1,0 +1,20 @@
+Scenario: matrix stress / profile=pdf
+Description: PDF default (mild; ~97% time in A0/U0)
+Run at: 2026-07-27T13:12:17
+disruption_mode: both
+disruption_matrix_profile: pdf
+Replications: 30 (30 warmup + 365 eval)
+random_seed_base: 42
+demand_intensity_scale: 1.2
+
+=== Summary (mean ± 95% CI) ===
+
+total_profit: 2573988.5950 ± 6246.9182
+fill_rate: 0.9976 ± 0.0015
+lost_sales_rate: 0.0024 ± 0.0015
+average_forward_inventory: 19.9884 ± 0.0547
+average_central_inventory: 255.1270 ± 2.0508
+
+cw_shortage_freq_mean: 0.0310
+cw_zero_inv_freq_mean: 0.0323
+fw_stockout_freq_mean: 0.0046

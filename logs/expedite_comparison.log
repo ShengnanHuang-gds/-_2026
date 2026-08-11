@@ -1,0 +1,40 @@
+Scenario: Expedite ablation comparison (e=0 vs e=1)
+Run at: 2026-07-17T14:59:30
+
+=== Experiment parameters ===
+disruption_mode: both
+enable_disruption: True
+warmup_days: 30
+evaluation_days: 365
+num_replications: 30
+random_seed_base: 42
+central_warehouse_capacity: 3600
+forward_warehouse_capacity: 160
+demand_intensity_scale: 1.2
+forward_holding_cost_ratio: 3.0
+supplier_lead_time_mode: baseline
+
+=== Fixed MDP action dimensions ===
+ell: 0 (no buffer uplift)
+allocation g: 1 (lowest_dos)
+varied: expedite e only
+note: action_id 0 is NOT used (would shortcut to Phase-2 path)
+
+=== Actions compared ===
+e0 action_id=1 tuple=(0, 0, 1)
+e1 action_id=4 tuple=(0, 1, 1)
+
+=== Side-by-side (mean ± 95% CI) ===
+
+Metric                       e=0                          e=1                         
+total_profit                 2574033.5108 ± 6176.5225     2411015.1742 ± 4744.4895    
+total_expedite_cost          0.0000 ± 0.0000              145710.3083 ± 236.3845      
+fill_rate                    0.9977 ± 0.0015              0.9984 ± 0.0010             
+lost_sales_rate              0.0023 ± 0.0015              0.0016 ± 0.0010             
+average_forward_inventory    19.9848 ± 0.0538             20.0643 ± 0.0380            
+average_central_inventory    255.1871 ± 1.9844            307.9106 ± 1.8530           
+
+=== Quick checks ===
+- e1 total_expedite_cost should be > e0 (≈ 0)
+- e1 may improve fill_rate / lower lost_sales under transport delay
+- e1 profit often lower due to expedite fee even if service improves

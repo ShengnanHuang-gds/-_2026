@@ -1,0 +1,69 @@
+
+===== TRAIN encoder=raw =====
+[train] state_encoder=raw dim=94 algo=ddqn forbid_expedite=True
+[eval  ep 005] greedy_profit=2141745.6 ± 127558.7 (n=3, days=365)
+[train ep 010/50] algo=ddqn steps=365 return=199.905 raw_profit=1999051.2 loss=0.12894 eps=0.759 buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2156643.8 ± 101360.9 (n=3, days=365)
+[eval  ep 015] greedy_profit=2154494.7 ± 104773.8 (n=3, days=365)
+[train ep 020/50] algo=ddqn steps=365 return=248.193 raw_profit=2481926.0 loss=0.45344 eps=0.518 buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2134239.7 ± 118972.9 (n=3, days=365)
+[eval  ep 025] greedy_profit=2144687.0 ± 123720.8 (n=3, days=365)
+[train ep 030/50] algo=ddqn steps=365 return=237.363 raw_profit=2373628.9 loss=0.67120 eps=0.277 buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2153166.0 ± 109487.7 (n=3, days=365)
+[eval  ep 035] greedy_profit=2126701.6 ± 100099.2 (n=3, days=365)
+[train ep 040/50] algo=ddqn steps=365 return=203.891 raw_profit=2038913.9 loss=1.19474 eps=0.036 buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2148223.4 ± 122340.8 (n=3, days=365)
+[eval  ep 045] greedy_profit=2152723.6 ± 99627.0 (n=3, days=365)
+[train ep 050/50] algo=ddqn steps=365 return=193.338 raw_profit=1933380.3 loss=1.62618 eps=0.010 buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2134018.8 ± 97290.3 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_forbid_e1_raw_best.pt (profit=2156643.8)
+[raw] best_eval=2156643.77 dim checkpoint saved
+
+===== TRAIN encoder=risk =====
+[train] state_encoder=risk dim=33 algo=ddqn forbid_expedite=True
+[eval  ep 005] greedy_profit=2147779.7 ± 115755.5 (n=3, days=365)
+[train ep 010/50] algo=ddqn steps=365 return=200.389 raw_profit=2003893.4 loss=0.43969 eps=0.759 buf=3650 updates=2651
+[eval  ep 010] greedy_profit=2135213.1 ± 130512.2 (n=3, days=365)
+[eval  ep 015] greedy_profit=2135393.1 ± 87699.4 (n=3, days=365)
+[train ep 020/50] algo=ddqn steps=365 return=246.941 raw_profit=2469410.8 loss=1.12549 eps=0.518 buf=7300 updates=6301
+[eval  ep 020] greedy_profit=2153581.1 ± 128733.8 (n=3, days=365)
+[eval  ep 025] greedy_profit=2115511.4 ± 121639.6 (n=3, days=365)
+[train ep 030/50] algo=ddqn steps=365 return=231.668 raw_profit=2316682.4 loss=1.48163 eps=0.277 buf=10950 updates=9951
+[eval  ep 030] greedy_profit=2152372.8 ± 118253.4 (n=3, days=365)
+[eval  ep 035] greedy_profit=2144373.3 ± 127611.0 (n=3, days=365)
+[train ep 040/50] algo=ddqn steps=365 return=201.672 raw_profit=2016721.7 loss=2.38233 eps=0.036 buf=14600 updates=13601
+[eval  ep 040] greedy_profit=2122164.0 ± 122329.7 (n=3, days=365)
+[eval  ep 045] greedy_profit=2123622.5 ± 104453.1 (n=3, days=365)
+[train ep 050/50] algo=ddqn steps=365 return=190.259 raw_profit=1902593.6 loss=2.76621 eps=0.010 buf=18250 updates=17251
+[eval  ep 050] greedy_profit=2123712.9 ± 114517.8 (n=3, days=365)
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_forbid_e1_risk_best.pt (profit=2153581.1)
+[risk] best_eval=2153581.12 dim checkpoint saved
+
+===== 30-rep baselines =====
+  fixed_0_(s,S): 1987242.83 ± 67121.16
+  best_fixed_12: 2155239.64 ± 57518.15
+  rule_based: 2143906.96 ± 59791.66
+
+===== EVAL encoder=raw dim=94 =====
+  DDQN(raw) mean=2105781.69 ± 63252.76 ell2|sev=39.7% agree_rule=7.1%
+
+===== EVAL encoder=risk dim=33 =====
+  DDQN(risk) mean=2110487.69 ± 59878.01 ell2|sev=41.0% agree_rule=6.6%
+
+Raw94 vs Risk33 encoder comparison (forbid_e1, no warmstart)
+Run at: 2026-07-29T13:02:59
+profile: harsh_strong
+episodes: 50
+n_rep: 30 seeds 42..71
+demand_intensity_scale: 1.2
+
+enc     dim         DDQN        ±CI      Δrule      Δbest   ell2|sev  agree_r
+raw      94   2105781.69   63252.76  -38125.28  -49457.95      39.7%     7.1%
+risk     33   2110487.69   59878.01  -33419.27  -44751.95      41.0%     6.6%
+
+baselines: rule=2143906.96±59791.66 | best_fixed_12=2155239.64±57518.15 | fixed_0_(s,S)=1987242.83±67121.16
+
+Note: both DDQNs trained without rule warmstart for a fair encoder A/B.
+Risk − Raw profit delta: +4706.00 (+0.22% of Raw)
+
+log → /Users/oliverhuang/Desktop/2026_furp_零售/logs/ddqn_encoder_raw_vs_risk_harsh_strong_30rep.log

@@ -1,0 +1,32 @@
+Three-matrix allow_e1, NO warm-start (30-rep)
+Run at: 2026-07-31T14:49:58
+forbid_expedite=False rule_warmstart=0 episodes=50
+
+=== pdf ===
+  fixed_0=2573988.59±6246.92 | best=2574056.05±6180.39 | rule=2574862.66±5639.48
+  dqn      2520611.93±4178.75 Δrule=-54251 Δbest=-53444
+  ddqn     2524140.03±4254.12 Δrule=-50723 Δbest=-49916
+  dueling  2509697.45±5030.00 Δrule=-65165 Δbest=-64359
+  d3qn     2523358.89±4638.84 Δrule=-51504 Δbest=-50697
+  ppo      2574885.88±5365.29 Δrule=+23 Δbest=+830
+
+=== harsh_mild ===
+  fixed_0=2453409.16±30976.47 | best=2466956.16±25417.14 | rule=2486155.36±25917.67
+  dqn      2441092.46±26041.55 Δrule=-45063 Δbest=-25864
+  ddqn     2437807.29±25102.88 Δrule=-48348 Δbest=-29149
+  dueling  2432852.90±23164.08 Δrule=-53302 Δbest=-34103
+  d3qn     2440802.62±25386.69 Δrule=-45353 Δbest=-26154
+  ppo      2472945.57±28427.46 Δrule=-13210 Δbest=+5989
+
+=== harsh_strong ===
+  fixed_0=1987242.83±67121.16 | best=2155239.64±57518.15 | rule=2143906.96±59791.66
+  dqn      2122684.17±59736.57 Δrule=-21223 Δbest=-32555
+  ddqn     2097040.74±56106.70 Δrule=-46866 Δbest=-58199
+  dueling  2130325.08±55200.68 Δrule=-13582 Δbest=-24915
+  d3qn     2127642.34±57401.07 Δrule=-16265 Δbest=-27597
+  ppo      2117285.98±58747.90 Δrule=-26621 Δbest=-37954
+
+Table DDQN (no-ws, allow_e1) vs baselines:
+  pdf: DDQN=2.524M fixed_0=2.574M best=2.574M rule=2.575M
+  harsh_mild: DDQN=2.438M fixed_0=2.453M best=2.467M rule=2.486M
+  harsh_strong: DDQN=2.097M fixed_0=1.987M best=2.155M rule=2.144M

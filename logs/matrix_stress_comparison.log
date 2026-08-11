@@ -1,0 +1,27 @@
+Scenario: Matrix stress comparison (disruption_mode=both)
+Run at: 2026-07-27T13:12:19
+
+Profiles:
+  - pdf: PDF default (mild; ~97% time in A0/U0)
+  - harsh_mild: Stress: leave A0/U0 more often; ~20% time disrupted
+  - harsh_strong: Aggressive stress: ~50%+ time disrupted
+
+Metric                      pdf                         harsh_mild                  harsh_strong                
+----------------------------------------------------------------------------------------------------------------
+total_profit                2573988.5950 ± 6246.9182    2453409.1592 ± 30976.4730   1987242.8325 ± 67121.1628   
+fill_rate                   0.9976 ± 0.0015             0.9604 ± 0.0082             0.8315 ± 0.0168             
+lost_sales_rate             0.0024 ± 0.0015             0.0396 ± 0.0082             0.1685 ± 0.0168             
+average_forward_inventory   19.9884 ± 0.0547            18.8062 ± 0.2172            15.0960 ± 0.4089            
+average_central_inventory   255.1270 ± 2.0508           213.9753 ± 4.9922           128.1401 ± 6.0406           
+
+Derived frequencies (product-mean):
+cw_shortage_freq            0.0310                      0.1374                      0.4179                      
+cw_zero_inv_freq            0.0323                      0.1421                      0.4297                      
+fw_stockout_freq            0.0046                      0.0438                      0.1796                      
+
+Notes:
+- pdf is the course baseline; harsh_* are stress overlays only.
+- Expect fill_rate to fall and lost_sales / shortage freqs to rise
+  as the profile becomes harsher.
+- Switch with SimulationConfig(disruption_matrix_profile=...).
+- Or pass custom_m_a / custom_m_u for a fully custom pair.

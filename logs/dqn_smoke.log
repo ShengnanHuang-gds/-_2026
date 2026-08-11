@@ -1,0 +1,30 @@
+DQN smoke training
+Run at: 2026-07-29T11:08:06
+profile: harsh_mild
+mode: both
+warmup_days: 5
+evaluation_days: 30
+episodes: 10
+reward_scale: 10000.0
+gamma: 0.99  lr: 0.001
+batch_size: 32  start_learning_after: 64
+eps: 1.0 → 0.05 over 500 steps
+seed: 42  device: cpu
+
+global_steps: 300
+updates: 237
+elapsed_sec: 0.18
+buffer_size: 300
+final_eps: 0.4300
+
+episode | scaled_return | raw_profit | mean_loss
+      1 |        16.176 |   161760.4 | nan
+      2 |        16.428 |   164283.1 | nan
+      3 |        17.098 |   170978.4 | 0.97371
+      4 |        16.844 |   168439.5 | 0.21153
+      5 |        16.168 |   161676.9 | 0.17086
+      6 |        17.321 |   173212.4 | 0.28717
+      7 |        16.689 |   166890.2 | 0.18502
+      8 |        16.822 |   168217.9 | 0.42423
+      9 |        17.056 |   170556.4 | 0.35656
+     10 |        15.894 |   158938.9 | 0.36880

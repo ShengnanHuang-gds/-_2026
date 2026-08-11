@@ -1,0 +1,20 @@
+Scenario: matrix stress / profile=harsh_strong
+Description: Aggressive stress: ~50%+ time disrupted
+Run at: 2026-07-27T13:12:19
+disruption_mode: both
+disruption_matrix_profile: harsh_strong
+Replications: 30 (30 warmup + 365 eval)
+random_seed_base: 42
+demand_intensity_scale: 1.2
+
+=== Summary (mean ± 95% CI) ===
+
+total_profit: 1987242.8325 ± 67121.1628
+fill_rate: 0.8315 ± 0.0168
+lost_sales_rate: 0.1685 ± 0.0168
+average_forward_inventory: 15.0960 ± 0.4089
+average_central_inventory: 128.1401 ± 6.0406
+
+cw_shortage_freq_mean: 0.4179
+cw_zero_inv_freq_mean: 0.4297
+fw_stockout_freq_mean: 0.1796

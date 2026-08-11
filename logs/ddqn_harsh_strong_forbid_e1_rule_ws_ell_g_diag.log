@@ -1,0 +1,72 @@
+Run at: 2026-07-29T12:27:24
+checkpoint: logs/checkpoints/ddqn_harsh_strong_forbid_e1_rule_ws_best.pt
+reps: 10  seed: 42  demand_intensity_scale: 1.2
+
+DDQN forbid_e1 (ell,g) diagnosis
+profile: harsh_strong
+steps: 3650
+best_fixed: id=12 (2, 0, 0)
+rule severe target: (2,0,1)  | rule normal: (0,0,1) | mild: (1,0,1)
+
+e=1 count: 0 (0.0%)  [expect 0 under forbid_e1]
+
+=== overall action distribution (9 e=0 actions) ===
+  id= 0 (0, 0, 0)    349  9.6%
+  id= 1 (0, 0, 1)     87  2.4%
+  id= 2 (0, 0, 2)    108  3.0%
+  id= 6 (1, 0, 0)     62  1.7%
+  id= 7 (1, 0, 1)    205  5.6%
+  id= 8 (1, 0, 2)    175  4.8%
+  id=12 (2, 0, 0)   1197  32.8%  ← best_fixed
+  id=13 (2, 0, 1)   1203  33.0%  ← rule severe
+  id=14 (2, 0, 2)    264  7.2%
+
+=== overall ell / g ===
+  ell=0:   544  14.9%
+  ell=1:   442  12.1%
+  ell=2:  2664  73.0%
+  g=0 (proportional):  1608  44.1%
+  g=1 (lowest_dos):  1495  41.0%
+  g=2 (value_penalty):   547  15.0%
+
+=== agreement ===
+  vs best_fixed_12: 1197/3650  32.8%
+  vs rule_based:         1064/3650  29.2%
+
+=== by disruption severity ===
+-- normal (n=794, 21.8% of days) --
+  ell: 0=24.1%, 1=11.6%, 2=64.4%
+  g:   0=42.7%, 1=40.6%, 2=16.8%
+  top actions:
+    id=13 (2, 0, 1)  31.2%
+    id=12 (2, 0, 0)  24.9%
+    id= 0 (0, 0, 0)  16.2%
+    id=14 (2, 0, 2)  8.2%
+    id= 8 (1, 0, 2)  8.1%
+
+-- mild (n=559, 15.3% of days) --
+  ell: 0=10.0%, 1=31.7%, 2=58.3%
+  g:   0=46.5%, 1=49.2%, 2=4.3%
+  top actions:
+    id=12 (2, 0, 0)  35.8%
+    id= 7 (1, 0, 1)  29.2%
+    id=13 (2, 0, 1)  20.0%
+    id= 0 (0, 0, 0)  10.0%
+    id=14 (2, 0, 2)  2.5%
+
+-- severe (n=2297, 62.9% of days) --
+  ell: 0=12.9%, 1=7.5%, 2=79.5%
+  g:   0=43.9%, 1=39.1%, 2=17.0%
+  top actions:
+    id=13 (2, 0, 1)  36.7%
+    id=12 (2, 0, 0)  34.8%
+    id=14 (2, 0, 2)  8.1%
+    id= 0 (0, 0, 0)  7.1%
+    id= 2 (0, 0, 2)  4.5%
+  FOCUS severe: ell=2 rate=79.5% (buffer high enough?) | g=1 rate=39.1% (lowest_dos stable?)
+  FOCUS severe: best_fixed match=34.8% | (2,0,1) match=36.7%
+  FOCUS severe: under-buffered days (ell<2)=470 (20.5%)
+
+=== quick verdict hints ===
+  ell=2 is 80% on severe → buffer direction OK
+  g=2 rate=17%, distinct g values=3 on severe → allocation UNSTABLE / noisy

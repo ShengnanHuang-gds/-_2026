@@ -1,0 +1,15 @@
+Raw94 vs Risk33 encoder comparison (forbid_e1, no warmstart)
+Run at: 2026-07-29T13:02:59
+profile: harsh_strong
+episodes: 50
+n_rep: 30 seeds 42..71
+demand_intensity_scale: 1.2
+
+enc     dim         DDQN        ±CI      Δrule      Δbest   ell2|sev  agree_r
+raw      94   2105781.69   63252.76  -38125.28  -49457.95      39.7%     7.1%
+risk     33   2110487.69   59878.01  -33419.27  -44751.95      41.0%     6.6%
+
+baselines: rule=2143906.96±59791.66 | best_fixed_12=2155239.64±57518.15 | fixed_0_(s,S)=1987242.83±67121.16
+
+Note: both DDQNs trained without rule warmstart for a fair encoder A/B.
+Risk − Raw profit delta: +4706.00 (+0.22% of Raw)

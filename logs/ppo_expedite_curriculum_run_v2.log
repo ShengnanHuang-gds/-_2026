@@ -1,0 +1,116 @@
+
+===== STAGE A: PPO forbid_e1 + rule ws =====
+[train PPO] encoder=raw dim=94 n_actions=18 forbid_e1=True
+[warmstart] collecting 20 rule episodes ...
+[warmstart PPO-BC 0001/2000] loss=2.1987
+[warmstart PPO-BC 0400/2000] loss=0.0014
+[warmstart PPO-BC 0800/2000] loss=0.0002
+[warmstart PPO-BC 1200/2000] loss=0.0001
+[warmstart PPO-BC 1600/2000] loss=0.0000
+[warmstart PPO-BC 2000/2000] loss=0.0000
+[warmstart] pre-RL greedy eval=2171627.1
+[train PPO ep 001/50] raw_profit=2125227.7 loss=28.5314 sample_e1=0.0% e1_legal_days=0.0%
+[eval  PPO ep 005] greedy_profit=2171627.1 ± 126977.3
+[train PPO ep 010/50] raw_profit=2081597.8 loss=42.7171 sample_e1=0.0% e1_legal_days=0.0%
+[eval  PPO ep 010] greedy_profit=2172871.5 ± 120211.1
+[eval  PPO ep 015] greedy_profit=2172597.6 ± 126586.1
+[train PPO ep 020/50] raw_profit=2529312.9 loss=27.6971 sample_e1=0.0% e1_legal_days=0.0%
+[eval  PPO ep 020] greedy_profit=2170777.9 ± 126106.3
+[eval  PPO ep 025] greedy_profit=2172385.9 ± 121198.0
+[train PPO ep 030/50] raw_profit=2407407.8 loss=28.4334 sample_e1=0.0% e1_legal_days=0.0%
+[eval  PPO ep 030] greedy_profit=2173733.1 ± 122192.3
+[eval  PPO ep 035] greedy_profit=2167796.7 ± 121790.9
+[train PPO ep 040/50] raw_profit=2077997.7 loss=25.8804 sample_e1=0.0% e1_legal_days=0.0%
+[eval  PPO ep 040] greedy_profit=2172982.3 ± 121796.0
+[eval  PPO ep 045] greedy_profit=2169887.6 ± 124332.8
+[train PPO ep 050/50] raw_profit=1964298.3 loss=22.5780 sample_e1=0.0% e1_legal_days=0.0%
+[eval  PPO ep 050] greedy_profit=2169784.1 ± 112777.9
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ppo_harsh_strong_raw94_ws_forbid_e1_stageA_best.pt (profit=2173733.1)
+[train PPO done] mean_sample_e1=0.0% mean_e1_legal_days=0.0% forbid_e1=True
+[A] best_eval=2173733.066666667
+
+===== STAGE B: curriculum allow_e1 fine-tune =====
+[train PPO] encoder=raw dim=94 n_actions=18 forbid_e1=False
+[train PPO] loaded init_checkpoint=/Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ppo_harsh_strong_raw94_ws_forbid_e1_stageA_best.pt (prior_best=2173733.066666667)
+[train PPO ep 001/30] raw_profit=2317747.7 loss=30.9494 sample_e1=0.0% e1_legal_days=86.8%
+[train PPO ep 005/30] raw_profit=2013105.6 loss=34.7605 sample_e1=0.0% e1_legal_days=79.5%
+[eval  PPO ep 005] greedy_profit=2194604.0 ± 116570.2
+[train PPO ep 010/30] raw_profit=2081775.0 loss=28.9811 sample_e1=0.0% e1_legal_days=82.2%
+[eval  PPO ep 010] greedy_profit=2208356.3 ± 117405.5
+[train PPO ep 015/30] raw_profit=2172994.9 loss=28.2908 sample_e1=0.0% e1_legal_days=82.5%
+[eval  PPO ep 015] greedy_profit=2207356.7 ± 117367.1
+[train PPO ep 020/30] raw_profit=2220531.1 loss=31.3241 sample_e1=0.0% e1_legal_days=83.6%
+[eval  PPO ep 020] greedy_profit=2191581.5 ± 121143.6
+[train PPO ep 025/30] raw_profit=2172459.7 loss=36.1635 sample_e1=0.0% e1_legal_days=80.5%
+[eval  PPO ep 025] greedy_profit=2206684.4 ± 119885.0
+[train PPO ep 030/30] raw_profit=2156137.5 loss=26.2453 sample_e1=0.0% e1_legal_days=93.2%
+[eval  PPO ep 030] greedy_profit=2216184.2 ± 114148.6
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ppo_harsh_strong_raw94_ws_curriculum_allow_e1_best.pt (profit=2216184.2)
+[train PPO done] mean_sample_e1=0.0% mean_e1_legal_days=83.2% forbid_e1=False
+[B] best_eval=2216184.241666667
+
+===== STAGE C: scratch allow_e1 + rule ws =====
+[train PPO] encoder=raw dim=94 n_actions=18 forbid_e1=False
+[warmstart] collecting 20 rule episodes ...
+[warmstart PPO-BC 0001/2000] loss=2.7827
+[warmstart PPO-BC 0400/2000] loss=0.0014
+[warmstart PPO-BC 0800/2000] loss=0.0002
+[warmstart PPO-BC 1200/2000] loss=0.0001
+[warmstart PPO-BC 1600/2000] loss=0.0000
+[warmstart PPO-BC 2000/2000] loss=0.0000
+[warmstart] pre-RL greedy eval=2286710.2
+[train PPO ep 001/50] raw_profit=2306539.1 loss=34.4529 sample_e1=0.0% e1_legal_days=89.0%
+[eval  PPO ep 005] greedy_profit=2286710.2 ± 67988.5
+[train PPO ep 010/50] raw_profit=2247461.6 loss=49.7576 sample_e1=0.0% e1_legal_days=83.6%
+[eval  PPO ep 010] greedy_profit=2286155.2 ± 59600.1
+[eval  PPO ep 015] greedy_profit=2282157.1 ± 59527.1
+[train PPO ep 020/50] raw_profit=2122254.0 loss=30.7114 sample_e1=0.0% e1_legal_days=86.6%
+[eval  PPO ep 020] greedy_profit=2302901.0 ± 52184.6
+[eval  PPO ep 025] greedy_profit=2293267.5 ± 56300.7
+[train PPO ep 030/50] raw_profit=2193464.7 loss=34.7176 sample_e1=0.0% e1_legal_days=89.3%
+[eval  PPO ep 030] greedy_profit=2295292.6 ± 60233.3
+[eval  PPO ep 035] greedy_profit=2281970.1 ± 59851.5
+[train PPO ep 040/50] raw_profit=2264315.0 loss=34.2754 sample_e1=0.0% e1_legal_days=86.3%
+[eval  PPO ep 040] greedy_profit=2295722.3 ± 63247.3
+[eval  PPO ep 045] greedy_profit=2296469.7 ± 57616.8
+[train PPO ep 050/50] raw_profit=2279644.5 loss=32.0157 sample_e1=0.0% e1_legal_days=83.6%
+[eval  PPO ep 050] greedy_profit=2297730.3 ± 57829.4
+saved best checkpoint → /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ppo_harsh_strong_raw94_ws_scratch_allow_e1_best.pt (profit=2302901.0)
+[train PPO done] mean_sample_e1=0.0% mean_e1_legal_days=83.4% forbid_e1=False
+[C] best_eval=2302901.0333333346
+
+===== baselines n_rep=30 =====
+  fixed_0_(s,S): 1987242.83 ± 67121.16
+  best_fixed_12: 2155239.64 ± 57518.15
+  rule_based: 2143906.96 ± 59791.66
+
+===== EVAL A_forbid =====
+  A_forbid: 2145550.95 ± 60977.08 | greedy_e1=0.0% | train_e1=0.0% | e1_legal=0.0% | exp_cost/ep=0 | Δrule=+1644 Δbest=-9689
+
+===== EVAL B_curriculum =====
+  B_curriculum: 2145421.41 ± 59540.31 | greedy_e1=0.0% | train_e1=0.0% | e1_legal=83.2% | exp_cost/ep=0 | Δrule=+1514 Δbest=-9818
+
+===== EVAL C_scratch =====
+  C_scratch: 2148642.01 ± 58437.81 | greedy_e1=0.0% | train_e1=0.0% | e1_legal=83.4% | exp_cost/ep=0 | Δrule=+4735 Δbest=-6598
+
+PPO expedite curriculum (harsh_strong, raw94, coarse)
+Run at: 2026-07-30T15:06:02
+A: forbid_e1 + ws (50 ep)
+B: load A → allow_e1 fine-tune (30 ep, lr=1e-4, ent=0.02)
+C: scratch allow_e1 + ws (50 ep)
+n_rep=30
+
+train_sample_e1 = stochastic rollout e=1 rate during training
+train_e1_legal = fraction of days where mask allows at least one e=1
+greedy_e1 = e=1 rate under select_greedy eval
+
+arm            forbid       profit        ±CI  greedy_e1   train_e1   e1_legal      Δrule      Δbest
+A_forbid            Y   2145550.95   60977.08       0.0%       0.0%       0.0%   +1643.99   -9688.69
+B_curriculum        N   2145421.41   59540.31       0.0%       0.0%      83.2%   +1514.45   -9818.23
+C_scratch           N   2148642.01   58437.81       0.0%       0.0%      83.4%   +4735.05   -6597.63
+
+baselines: rule=2143906.96±59791.66 | best_fixed_12=2155239.64±57518.15
+curriculum lift B−A: -129.54 (greedy_e1 0.0%→0.0%; train_e1 0.0%→0.0%)
+curriculum vs scratch B−C: -3220.60 (greedy_e1 0.0% vs 0.0%; train_e1 0.0% vs 0.0%)
+
+log → /Users/oliverhuang/Desktop/2026_furp_零售/logs/ppo_expedite_curriculum_harsh_strong_30rep.log

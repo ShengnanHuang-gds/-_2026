@@ -1,0 +1,20 @@
+Formal 30-rep comparison: DDQN rule-warmstart (forbid e=1) vs baselines
+Shared seeds: 42..71 | demand_intensity_scale=1.2 | horizon 30+365
+CI = mean ± 95% half-width
+
+=== summary table (total_profit) ===
+profile         ddqn          fixed_0       best_fixed     rule          Δ vs best    Δ vs rule
+pdf             2574863.8     2573988.6     2574056.1      2574862.7     +0.03%       +0.00%
+harsh_mild      2486155.4     2453409.2     2466956.2      2486155.4     +0.78%       +0.00%
+harsh_strong    2136920.3     1987242.8     2155239.6      2143907.0     -0.85%       -0.33%
+
+Notes:
+- pdf / harsh_mild: DDQN matches rule essentially exactly (warmstart BC locked in the rule policy;
+  on pdf/mild, RL fine-tune did not beat the pre-RL checkpoint, so saved weights ≈ cloned rule).
+- harsh_strong: DDQN is in the same CI band as best_fixed_12 / rule, clearly above fixed_0 (+7.5%),
+  slightly below best_fixed (-0.85%).
+
+Per-profile logs:
+  logs/ddqn_pdf_forbid_e1_rule_ws_vs_baselines_30rep.log
+  logs/ddqn_harsh_mild_forbid_e1_rule_ws_vs_baselines_30rep.log
+  logs/ddqn_harsh_strong_forbid_e1_rule_ws_vs_baselines_30rep.log

@@ -1,0 +1,35 @@
+Scenario: Markov Disruption (A and U both evolve)
+Run at: 2026-07-17T13:11:27
+disruption_mode: both
+enable_disruption: True
+Replications: 30 (30 warmup + 365 evaluation days)
+random_seed_base: 42
+
+=== Summary (mean ± 95% CI) ===
+
+total_profit: 2573988.5950 ± 6246.9182
+fill_rate: 0.9976 ± 0.0015
+lost_sales_rate: 0.0024 ± 0.0015
+avg_forward_inventory: 19.9884 ± 0.0547
+avg_central_inventory: 255.1270 ± 2.0508
+
+--- CW shortage frequency by product ---
+P1: 0.0396 ± 0.0045
+P2: 0.0356 ± 0.0058
+P3: 0.0297 ± 0.0053
+P4: 0.0258 ± 0.0054
+P5: 0.0242 ± 0.0053
+
+--- CW zero-inventory days by product (end-of-day) ---
+P1: 0.0405 ± 0.0044
+P2: 0.0363 ± 0.0058
+P3: 0.0305 ± 0.0053
+P4: 0.0274 ± 0.0053
+P5: 0.0266 ± 0.0052
+
+--- FW stockout days by product (lost_sales > 0) ---
+P1: 0.0054 ± 0.0022
+P2: 0.0053 ± 0.0019
+P3: 0.0048 ± 0.0016
+P4: 0.0042 ± 0.0015
+P5: 0.0033 ± 0.0015

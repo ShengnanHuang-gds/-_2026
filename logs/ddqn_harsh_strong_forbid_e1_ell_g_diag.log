@@ -1,0 +1,72 @@
+Run at: 2026-07-29T12:22:14
+checkpoint: /Users/oliverhuang/Desktop/2026_furp_零售/logs/checkpoints/ddqn_harsh_strong_forbid_e1_best.pt
+reps: 10  seed: 42  demand_intensity_scale: 1.2
+
+DDQN forbid_e1 (ell,g) diagnosis
+profile: harsh_strong
+steps: 3650
+best_fixed: id=12 (2, 0, 0)
+rule severe target: (2,0,1)  | rule normal: (0,0,1) | mild: (1,0,1)
+
+e=1 count: 0 (0.0%)  [expect 0 under forbid_e1]
+
+=== overall action distribution (9 e=0 actions) ===
+  id= 0 (0, 0, 0)    133  3.6%
+  id= 1 (0, 0, 1)    190  5.2%
+  id= 2 (0, 0, 2)    238  6.5%
+  id= 6 (1, 0, 0)    584  16.0%
+  id= 7 (1, 0, 1)    304  8.3%
+  id= 8 (1, 0, 2)    628  17.2%
+  id=12 (2, 0, 0)    719  19.7%  ← best_fixed
+  id=13 (2, 0, 1)    545  14.9%  ← rule severe
+  id=14 (2, 0, 2)    309  8.5%
+
+=== overall ell / g ===
+  ell=0:   561  15.4%
+  ell=1:  1516  41.5%
+  ell=2:  1573  43.1%
+  g=0 (proportional):  1436  39.3%
+  g=1 (lowest_dos):  1039  28.5%
+  g=2 (value_penalty):  1175  32.2%
+
+=== agreement ===
+  vs best_fixed_12: 719/3650  19.7%
+  vs rule_based:         259/3650  7.1%
+
+=== by disruption severity ===
+-- normal (n=794, 21.8% of days) --
+  ell: 0=7.6%, 1=47.9%, 2=44.6%
+  g:   0=46.0%, 1=29.1%, 2=24.9%
+  top actions:
+    id= 6 (1, 0, 0)  30.1%
+    id=13 (2, 0, 1)  24.6%
+    id= 8 (1, 0, 2)  15.9%
+    id=12 (2, 0, 0)  13.7%
+    id=14 (2, 0, 2)  6.3%
+
+-- mild (n=559, 15.3% of days) --
+  ell: 0=12.5%, 1=32.4%, 2=55.1%
+  g:   0=42.2%, 1=30.6%, 2=27.2%
+  top actions:
+    id=13 (2, 0, 1)  22.7%
+    id= 6 (1, 0, 0)  20.0%
+    id=12 (2, 0, 0)  19.7%
+    id=14 (2, 0, 2)  12.7%
+    id= 8 (1, 0, 2)  9.7%
+
+-- severe (n=2297, 62.9% of days) --
+  ell: 0=18.8%, 1=41.6%, 2=39.7%
+  g:   0=36.4%, 1=27.7%, 2=35.9%
+  top actions:
+    id=12 (2, 0, 0)  21.8%
+    id= 8 (1, 0, 2)  19.5%
+    id= 7 (1, 0, 1)  11.9%
+    id= 6 (1, 0, 0)  10.1%
+    id=13 (2, 0, 1)  9.7%
+  FOCUS severe: ell=2 rate=39.7% (buffer high enough?) | g=1 rate=27.7% (lowest_dos stable?)
+  FOCUS severe: best_fixed match=21.8% | (2,0,1) match=9.7%
+  FOCUS severe: under-buffered days (ell<2)=1386 (60.3%)
+
+=== quick verdict hints ===
+  ell=2 only 40% on severe → buffer likely TOO LOW
+  g=2 rate=36%, distinct g values=3 on severe → allocation UNSTABLE / noisy

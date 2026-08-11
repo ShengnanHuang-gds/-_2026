@@ -1,0 +1,32 @@
+Algorithm × warmstart comparison (raw 94-d state, coarse actions)
+Run at: 2026-07-29T13:31:09
+profile: harsh_strong
+state_encoder: raw (94)
+action_space: coarse (18; forbid_e1 → 9 legal)
+episodes: 50
+n_rep: 30 seeds 42..71
+demand_intensity_scale: 1.2
+
+Warmstart = 20 rule episodes + BC 2000 (+ TD-pre 500 for value methods).
+No-ws = learn from scratch (ε: 1→0.01 for value methods).
+
+algo        ws       profit        ±CI      Δrule      Δbest
+dqn          N   2111863.44   61566.09  -32043.52  -43376.20
+dqn          Y   2136410.92   57482.41   -7496.04  -18828.72
+ddqn         N   2105781.69   63252.76  -38125.28  -49457.95
+ddqn         Y   2136920.35   59921.79   -6986.61  -18319.29
+dueling      N   2113089.26   56952.08  -30817.70  -42150.38
+dueling      Y   2092895.40   60368.87  -51011.56  -62344.23
+d3qn         N   2110254.74   63070.95  -33652.22  -44984.90
+d3qn         Y   2116717.97   60908.86  -27188.99  -38521.67
+ppo          N   2134984.98   59019.06   -8921.98  -20254.66
+ppo          Y   2145550.95   60977.08   +1643.99   -9688.69
+
+baselines: rule=2143906.96±59791.66 | best_fixed_12=2155239.64±57518.15 | fixed_0_(s,S)=1987242.83±67121.16
+
+Warmstart lift (ws − no_ws):
+  dqn        +24547.48
+  ddqn       +31138.66
+  dueling    -20193.85
+  d3qn       +6463.22
+  ppo        +10565.96
